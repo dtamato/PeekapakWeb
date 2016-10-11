@@ -18,8 +18,26 @@ public class Emotions : MonoBehaviour {
 	}
 
     public void OnDrag() {
-        Debug.Log("Dragging");
+        // Debug.Log("Dragging");
         transform.localPosition = new Vector3(Input.mousePosition.x - (Screen.width / 2), Input.mousePosition.y - (Screen.height / 2), this.transform.localPosition.z);
+    }
+
+    public void OnDragEnd() {
+        // Debug.Log("Ending Drag");
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5);
+        if (colliders.Length > 0) {
+            // Debug.Log("Found Something");
+            for (int i = 0; i < colliders.Length; i++) {
+                if (colliders[i].tag == "Face") {
+                    // Debug.Log("Found a Face");
+                    if (colliders[i].gameObject.GetComponent<Faces>().GetID() == this.id) {
+                        this.gameObject.SetActive(false);
+                        colliders[i].GetComponent<Image>().enabled = false;
+                        colliders[i].transform.GetChild(0).gameObject.SetActive(true);
+                    }
+                }
+            }
+        }
     }
 
     public void Initialize(string newEmotion, int newID) {

@@ -66,17 +66,15 @@ public class GameController : MonoBehaviour {
         FillLists(faceArray, emotionArray);
         ShuffleEmotionsList(emotions);
         ShuffleFacesList(faces);
-
+        // Create the emotions
         for (int i = 0; i < emotions.Count; i++)
         {
             CreateEmotion(i);
         }
-
+        // Create the faces
         for (int i = 0; i < faces.Count; i++) {
             CreateFace(i);
         }
-
-       
     }
 
     void CreateEmotion(int i) {
@@ -120,8 +118,7 @@ public class GameController : MonoBehaviour {
     }
 
     void ShuffleEmotionsList(List<Emotions> emotionList) {
-        for (int i = emotionList.Count - 1; i > 0; i--)
-        {
+        for (int i = emotionList.Count - 1; i > 0; i--) {
             int rand = Random.Range(0, i);
             Emotions temp = emotionList[i];
             emotionList[i] = emotionList[rand];
