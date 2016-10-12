@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class Emotions : MonoBehaviour {
 
+    [SerializeField]
+    GameObject pointsPrefab;
+
     string emotion;
     int id;
 
@@ -31,13 +34,23 @@ public class Emotions : MonoBehaviour {
                 if (colliders[i].tag == "Face") {
                     // Debug.Log("Found a Face");
                     if (colliders[i].gameObject.GetComponent<Faces>().GetID() == this.id) {
-                        this.gameObject.SetActive(false);
-                        colliders[i].GetComponent<Image>().enabled = false;
-                        colliders[i].transform.GetChild(0).gameObject.SetActive(true);
+                        FoundMatch(colliders, i);
                     }
                 }
             }
         }
+    }
+
+    void FoundMatch(Collider2D[] colliders, int i) {
+        this.gameObject.SetActive(false);
+        colliders[i].GetComponent<Image>().enabled = false;
+        colliders[i].transform.GetChild(0).gameObject.SetActive(true);
+
+        // Instantiate the points - let the points control their own motion
+        GameObject newPoints = Instantiate(pointsPrefab, this.transform.position, Quaternion.identity) as GameObject;
+        newPoints.transform.parent = this.transform.parent;
+        newPoints.transform.position = this.transform.position + new Vector3(-15, 15, 0);
+        newPoints.transform.localScale = Vector3.one;
     }
 
     public void Initialize(string newEmotion, int newID) {
