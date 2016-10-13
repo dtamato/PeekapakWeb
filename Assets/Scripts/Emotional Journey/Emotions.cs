@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 public class Emotions : MonoBehaviour {
 
-    [SerializeField]
-    GameObject pointsPrefab;
+	GameController gameController;
+    [SerializeField] GameObject pointsPrefab;
 
     string emotion;
     int id;
 
 	// Use this for initialization
 	void Start () {
-	
+		gameController = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameController>();
 	}
 	
 	// Update is called once per frame
@@ -35,6 +35,7 @@ public class Emotions : MonoBehaviour {
                     // Debug.Log("Found a Face");
                     if (colliders[i].gameObject.GetComponent<Faces>().GetID() == this.id) {
                         FoundMatch(colliders, i);
+						gameController.IncreaseMatchesFound ();
                     }
                 }
             }

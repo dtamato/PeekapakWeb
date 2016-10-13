@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
     [SerializeField] GameObject facePrefab;
     [SerializeField] GameObject emotionPrefab;
     [SerializeField] GameObject canvas;
+	[SerializeField] GameObject startPanel;
 
     List<Faces> faces = new List<Faces>();
     List<Emotions> emotions = new List<Emotions>();
@@ -25,9 +26,11 @@ public class GameController : MonoBehaviour {
     Book currentBook = Book.PERSEVERANCE;
     GradeLevel currentGradeLevel = GradeLevel.PRE_K;
 
+	int matchesFound = 0;
+
 	// Use this for initialization
 	void Start () {
-        CheckBook();
+        // CheckBook();
 	}
 	
 	// Update is called once per frame
@@ -125,4 +128,17 @@ public class GameController : MonoBehaviour {
             emotionList[rand] = temp;
         }
     }
+
+	public void IncreaseMatchesFound(){
+		matchesFound++;
+		if (matchesFound >= 3) {
+			// End Game
+			startPanel.SetActive(true);
+		}
+	}
+
+	public void SetBook(int newBook){
+		currentBook = (Book)newBook;
+		CheckBook ();
+	}
 }
