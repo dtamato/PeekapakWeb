@@ -69,18 +69,18 @@ public class GameController : MonoBehaviour {
         FillLists(faceArray, emotionArray);
         ShuffleEmotionsList(emotions);
         ShuffleFacesList(faces);
+		// Create the faces
+		for (int i = 0; i < faces.Count; i++) {
+			CreateFace(i);
+		}
         // Create the emotions
-        for (int i = 0; i < emotions.Count; i++)
-        {
+        for (int i = 0; i < emotions.Count; i++){
             CreateEmotion(i);
-        }
-        // Create the faces
-        for (int i = 0; i < faces.Count; i++) {
-            CreateFace(i);
         }
     }
 
-    void CreateEmotion(int i) {
+    void CreateFace(int i) {
+		Debug.Log ("Face Indexer: " + i);
         GameObject newFace = Instantiate(facePrefab, facePositions[i].position, Quaternion.identity) as GameObject;
         newFace.transform.parent = canvas.transform;
         newFace.transform.localScale = emotionPositions[i].localScale;
@@ -88,7 +88,7 @@ public class GameController : MonoBehaviour {
         newFace.GetComponent<Faces>().SetFaceImage();
     }
 
-    void CreateFace(int i) {
+    void CreateEmotion(int i) {
         GameObject newEmotion = Instantiate(emotionPrefab, emotionPositions[i].position, Quaternion.identity) as GameObject;
         newEmotion.transform.parent = canvas.transform;
         newEmotion.transform.localScale = emotionPositions[i].localScale;
@@ -129,11 +129,31 @@ public class GameController : MonoBehaviour {
         }
     }
 
+	void ResetGame(){
+		Debug.Log("Resetting Game");
+		faces = new List<Faces>();
+		emotions = new List<Emotions> ();
+		GameObject[] foundEmotions = GameObject.FindGameObjectsWithTag ("Emotion");
+		foreach (GameObject emos in foundEmotions) {
+			Destroy (emos.gameObject);
+		}
+		GameObject[] foundFaces = GameObject.FindGameObjectsWithTag ("Face");
+		foreach (GameObject face in foundFaces) {
+			Destroy (face.gameObject);
+		}
+		GameObject[] points = GameObject.FindGameObjectsWithTag ("Points");
+		foreach (GameObject point in points) {
+			Destroy (point.gameObject);
+		}
+	}
+
 	public void IncreaseMatchesFound(){
 		matchesFound++;
-		if (matchesFound >= 3) {
+		if (matchesFound == 3) {
 			// End Game
+			matchesFound = 0;
 			startPanel.SetActive(true);
+			ResetGame ();
 		}
 	}
 

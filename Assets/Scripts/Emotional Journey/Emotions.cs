@@ -27,7 +27,7 @@ public class Emotions : MonoBehaviour {
 
     public void OnDragEnd() {
         // Debug.Log("Ending Drag");
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 30);
         if (colliders.Length > 0) {
             // Debug.Log("Found Something");
             for (int i = 0; i < colliders.Length; i++) {
@@ -52,6 +52,7 @@ public class Emotions : MonoBehaviour {
         newPoints.transform.parent = this.transform.parent;
         newPoints.transform.position = this.transform.position + new Vector3(-15, 15, 0);
         newPoints.transform.localScale = Vector3.one;
+		Destroy (this.gameObject);
     }
 
     public void Initialize(string newEmotion, int newID) {
