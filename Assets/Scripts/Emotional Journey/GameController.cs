@@ -8,10 +8,27 @@ public class GameController : MonoBehaviour {
     public enum GradeLevel { PRE_K, KINDERGARTEN, GRADE1, GRADE2, GRADE3, };
     public enum Book { COURAGE, OPTIMISM, HONESTY, EMPATHY, TEAMWORK, PERSEVERANCE, KINDESS, GRATITUDE, RESPECT, SELF_REGULATION, };
 
+    [SerializeField] Sprite[] faceSprites_courage;
+    [SerializeField] string[] emotions_courage;
+    [SerializeField] Sprite[] faceSprites_optimism;
+    [SerializeField] string[] emotions_optimism;
+    [SerializeField] Sprite[] faceSprites_honesty;
+    [SerializeField] string[] emotions_honesty;
+    [SerializeField] Sprite[] faceSprites_empathy;
+    [SerializeField] string[] emotions_empathy;
+    [SerializeField] Sprite[] faceSprites_kindness;
+    [SerializeField] string[] emotions_kindness;
+    [SerializeField] Sprite[] faceSprites_gratitude;
+    [SerializeField] string[] emotions_gratitude;
+    [SerializeField] Sprite[] faceSprites_respect;
+    [SerializeField] string[] emotions_respect;
+    [SerializeField] Sprite[] faceSprites_selfRegulation;
+    [SerializeField] string[] emotions_selfRegulation;
+
     [SerializeField] Sprite[] faceSprites_perseverance;
     [SerializeField] string[] emotions_perseverance;
-    // [SerializeField] Sprite[] faceSprites_teamWork;
-    // [SerializeField] string[] emotions_teamWork;
+    [SerializeField] Sprite[] faceSprites_teamWork;
+    [SerializeField] string[] emotions_teamWork;
 
     [SerializeField] Transform[] facePositions;
     [SerializeField] Transform[] emotionPositions;
@@ -41,25 +58,34 @@ public class GameController : MonoBehaviour {
     void CheckBook() {
         switch (currentBook) {
             case Book.COURAGE:
+                SetUpGame(faceSprites_courage, emotions_courage);
                 break;
             case Book.OPTIMISM:
+                SetUpGame(faceSprites_optimism, emotions_optimism);
                 break;
             case Book.HONESTY:
+                SetUpGame(faceSprites_honesty, emotions_honesty);
                 break;
             case Book.EMPATHY:
+                SetUpGame(faceSprites_empathy, emotions_empathy);
                 break;
             case Book.TEAMWORK:
+                SetUpGame(faceSprites_teamWork, emotions_teamWork);
                 break;
             case Book.PERSEVERANCE:
                 SetUpGame(faceSprites_perseverance, emotions_perseverance);
                 break;
             case Book.KINDESS:
+                SetUpGame(faceSprites_kindness, emotions_kindness);
                 break;
             case Book.GRATITUDE:
+                SetUpGame(faceSprites_gratitude, emotions_gratitude);
                 break;
             case Book.RESPECT:
+                SetUpGame(faceSprites_respect, emotions_respect);
                 break;
             case Book.SELF_REGULATION:
+                SetUpGame(faceSprites_selfRegulation, emotions_selfRegulation);
                 break;
         }
     }
