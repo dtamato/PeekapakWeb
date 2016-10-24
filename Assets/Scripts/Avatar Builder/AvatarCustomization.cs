@@ -6,29 +6,36 @@ using UnityEngine.EventSystems;
 public class AvatarCustomization : MonoBehaviour {
 
     [Header("Avatar Preview Images")]
+	[SerializeField] Image hairAImage;
+	[SerializeField] Image hairBImage;
+	[SerializeField] Image headImage;
+	[SerializeField] Image bodyImage;
+	[SerializeField] Image eyesImage;
+	[SerializeField] Image topImage;
+	[SerializeField] Image bottomsImage;
     [SerializeField] Image shoesImage;
 
     [Header("Grids")]
-    [SerializeField] GameObject skinGrid;
-    [SerializeField] GameObject hairGrid;
+	[SerializeField] GameObject hairGrid;
+	[SerializeField] GameObject skinGrid;
     [SerializeField] GameObject eyesGrid;
     [SerializeField] GameObject topGrid;
-    [SerializeField] GameObject bottomGrid;
+    [SerializeField] GameObject bottomsGrid;
     [SerializeField] GameObject shoesGrid; 
 
 	
     void OnEnable () {
         
-        HideAllGrids();
+        //HideAllGrids();
     }
 
     void HideAllGrids () {
-
-        skinGrid.SetActive(false);
+		        
         hairGrid.SetActive(false);
-        eyesGrid.SetActive(false);
+		skinGrid.SetActive(false);
+		eyesGrid.SetActive(false);
         topGrid.SetActive(false);
-        bottomGrid.SetActive(false);
+		bottomsGrid.SetActive(false);
         shoesGrid.SetActive(false);
     }
 
@@ -40,18 +47,39 @@ public class AvatarCustomization : MonoBehaviour {
         }
         else {
 
-            HideAllGrids();
+            //HideAllGrids();
             gridToToggle.SetActive(!gridToToggle.activeSelf);
         }
     }
 
-    public void UpdateShoes () {
+	public void SwitchHair () {
 
-        Sprite newShoeSprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
 
-        if(newShoeSprite) {
+	}
 
-            shoesImage.sprite = newShoeSprite;
-        }
+	public void SwitchSkin () {
+
+		headImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
+		bodyImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
+	}
+
+	public void SwitchEyes () {
+
+		eyesImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
+	}
+
+	public void SwitchTop () {
+
+		topImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
+	}
+
+	public void SwitchBottoms () {
+
+		bottomsImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
+	}
+
+    public void SwitchShoes () {
+
+		shoesImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
     }
 }
