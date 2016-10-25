@@ -6,7 +6,9 @@ public class EmotionalJourneyGameController : MonoBehaviour {
 
     public enum GameStage { STAGE_1, STAGE_2 };
     GameStage currentStage;
-    
+
+    [SerializeField] GameObject answerPrefab;
+
     [Header("Text References: ")]
     [SerializeField] string[] selfRegulation_Dialogue;
     [SerializeField] string[] selfRegulation_Questions;
@@ -18,12 +20,12 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     [SerializeField] GameObject gameBoard;
     [SerializeField] Text dialogueTextUI;
     [SerializeField] Text questionUI;
-    [SerializeField] Text[] answerUI;
+    [SerializeField] Transform[] answersUI;
 
     string currentBook;
     string[] dialogue;
     string[] questions;
-    string[] answers;
+    Answer[] answers;
     int[] rightAnswers;
     bool canClick = false;
     int stageCounter = 0;
@@ -56,7 +58,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
             Debug.Log("Filling Book");
 
             dialogue = new string[selfRegulation_Dialogue.Length];
-            answers = new string[selfRegulation_Options.Length];
+            answers = new Answer[selfRegulation_Options.Length];
             questions = new string[selfRegulation_Questions.Length];
             rightAnswers = new int[selfRegulation_RightAnswers.Length];
 
@@ -65,7 +67,8 @@ public class EmotionalJourneyGameController : MonoBehaviour {
             }
             
             for(int i = 0; i < selfRegulation_Options.Length; i++) {
-                answers[i] = selfRegulation_Options[i];
+                answers[i] = new Answer();
+                answers[i].Initialize(i, selfRegulation_Options[i]);
             }
 
             for(int i = 0; i < selfRegulation_Questions.Length; i++) {
@@ -85,9 +88,19 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         dialogueUI.SetActive(false);
 
         for (int i = 0; i < 3; i++) {
-            answerUI[i].text = answers[answerCounter];
+            // answerUI[i].text = answers[answerCounter];
+            GameObject newAnswer = Instantiate(answerPrefab, answersUI[i].localPosition, answersUI[i].localRotation) as GameObject;
+            newAnswer.GetComponent<Answer>().Initialize(answers[answerCounter].GetIndex(), answers[answerCounter].GetAnswer());
+            newAnswer.transform.parent = answersUI[i];
+            newAnswer.transform.localPosition = Vector3.zero;
+            newAnswer.transform.localScale = Vector3.one;
+            newAnswer.GetComponent<Answer>().SetText();
             if (redo == false) { answerCounter++; }
         }
+    }
+
+    void ShowAnswerResult() {
+
     }
 
     IEnumerator ToggleCanClick() {
@@ -95,16 +108,24 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         canClick = true;
     }
 
-    public void CheckAnswer() {
-
+    public void CheckAnswer(int answerIndex) {
+        if(currentStage == GameStage.STAGE_1) {
+            if (answerIndex == rightAnswers[(int)currentStage]) {
+                RightAnswer(answerIndex);
+            } else {
+                WrongAnswer(answerIndex);
+            }
+        }
     }
 
-    public void RightAnswer() {
+    public void RightAnswer(int answerIndex) {
         stageCounter++;
+        ShowAnswerResult();
     }
 
-    public void WrongAnswer() {
-        ShowGameboard(true);
+    public void WrongAnswer(int answerIndex) {
+        //ShowGameboard(true);
+        ShowAnswerResult();
     }
 
     public void StartGame(string book) {

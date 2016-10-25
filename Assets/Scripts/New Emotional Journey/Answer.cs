@@ -1,17 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class Option : MonoBehaviour {
+public class Answer : MonoBehaviour {
+
+    EmotionalJourneyGameController gameController;
 
     [SerializeField] Vector3 maxSize;
     [SerializeField] Vector3 minSize;
+    [SerializeField] Text answerTextUI; 
+
+    // Feedback Variables
     bool grow = false;
     bool shrink = false;
     float speed = 5;
 
+    int answerIndex;
+    string answerText;
+
     // Use this for initialization
     void Start () {
-	 
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<EmotionalJourneyGameController>();
 	}
 	
 	// Update is called once per frame
@@ -39,6 +48,15 @@ public class Option : MonoBehaviour {
         }
     }
 
+    public void Initialize(int newIndex, string newString) {
+        answerIndex = newIndex;
+        answerText = newString;
+    }
+
+    public void SetText() {
+        answerTextUI.text = answerText;
+    }
+
     public void OnPointerEnter() {
         grow = true;
         shrink = false;
@@ -51,5 +69,13 @@ public class Option : MonoBehaviour {
 
     public void OnPointerDown() {
 
+    }
+
+    public int GetIndex() {
+        return answerIndex;
+    }
+
+    public string GetAnswer() {
+        return answerText;
     }
 }
