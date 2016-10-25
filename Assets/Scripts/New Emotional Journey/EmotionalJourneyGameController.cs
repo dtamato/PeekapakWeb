@@ -28,6 +28,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     Answer[] answers;
     int[] rightAnswers;
     bool canClick = false;
+    bool gameStarted = false;
     int stageCounter = 0;
     int answerCounter = 0;
 
@@ -129,6 +130,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     }
 
     public void StartGame(string book) {
+        gameStarted = true;
         currentStage = GameStage.STAGE_1;
         currentBook = book;
         CheckBook();
@@ -136,5 +138,9 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         Debug.Log("dialogue" + dialogue[0]);
         dialogueTextUI.text = dialogue[0];
         StartCoroutine(ToggleCanClick());
+    }
+
+    public bool GameStarted() {
+        return gameStarted;
     }
 }
