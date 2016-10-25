@@ -6,16 +6,7 @@ public class Faces : MonoBehaviour {
 
     Sprite face;
     int id;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    int matchCount = 0;
 
     public void Initialize(Sprite newFace, int newID) {
         face = newFace;
@@ -33,5 +24,13 @@ public class Faces : MonoBehaviour {
 
     public int GetID() {
         return id;
+    }
+
+    public void IncreaseMatchCount() {
+        matchCount++;
+        if (matchCount == 2) {
+            this.GetComponent<Image>().enabled = false;
+            this.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 }
