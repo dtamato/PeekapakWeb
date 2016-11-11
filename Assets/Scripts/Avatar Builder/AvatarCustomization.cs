@@ -5,81 +5,98 @@ using UnityEngine.EventSystems;
 [DisallowMultipleComponent]
 public class AvatarCustomization : MonoBehaviour {
 
-    [Header("Avatar Preview Images")]
-	[SerializeField] Image hairAImage;
-	[SerializeField] Image hairBImage;
+	[Header("Avatar References")]
 	[SerializeField] Image headImage;
 	[SerializeField] Image bodyImage;
-	[SerializeField] Image eyesImage;
-	[SerializeField] Image topImage;
-	[SerializeField] Image bottomsImage;
-    [SerializeField] Image shoesImage;
 
-    [Header("Grids")]
-	[SerializeField] GameObject hairGrid;
-	[SerializeField] GameObject skinGrid;
-    [SerializeField] GameObject eyesGrid;
-    [SerializeField] GameObject topGrid;
-    [SerializeField] GameObject bottomsGrid;
-    [SerializeField] GameObject shoesGrid; 
+	[Header("Panels")]
+	[SerializeField] GameObject hairsPanel;
+	[SerializeField] GameObject eyesPanel;
+	[SerializeField] GameObject eyesColorPanel;
+	[SerializeField] GameObject skinsPanel;
+	[SerializeField] GameObject topsPanel;
+	[SerializeField] GameObject bottomsPanel;
+	[SerializeField] GameObject shoesPanel;
+	[SerializeField] GameObject nosesPanel;
+	[SerializeField] GameObject mouthsPanel;
+	[SerializeField] GameObject accessoriesPanel;
 
-	
-    void OnEnable () {
-        
-        //HideAllGrids();
-    }
-
-    void HideAllGrids () {
-		        
-        hairGrid.SetActive(false);
-		skinGrid.SetActive(false);
-		eyesGrid.SetActive(false);
-        topGrid.SetActive(false);
-		bottomsGrid.SetActive(false);
-        shoesGrid.SetActive(false);
-    }
-
-    public void ToggleGrid (GameObject gridToToggle) {
-
-        if (gridToToggle.activeSelf) {
-
-            gridToToggle.SetActive(false);
-        }
-        else {
-
-            //HideAllGrids();
-            gridToToggle.SetActive(!gridToToggle.activeSelf);
-        }
-    }
-
-	public void SwitchHair () {
+	GameObject[] panelsArray = new GameObject[10];
 
 
+	void Awake () {
+
+		panelsArray[0] = hairsPanel;
+		panelsArray[1] = eyesPanel;
+		panelsArray[2] = eyesColorPanel;
+		panelsArray[3] = skinsPanel;
+		panelsArray[4] = topsPanel;
+		panelsArray[5] = bottomsPanel;
+		panelsArray[6] = shoesPanel;
+		panelsArray[7] = nosesPanel;
+		panelsArray[8] = mouthsPanel;
+		panelsArray[9] = accessoriesPanel;
 	}
 
-	public void SwitchSkin () {
+	void CloseAllPanels () {
+
+		for (int i = 0; i < panelsArray.Length; i++) {
+
+			panelsArray [i].SetActive (false);
+		}
+	}
+
+	public void OpenHairsPanel () {
+
+		CloseAllPanels ();
+	}
+
+	public void OpenEyesPanel () {
+
+		CloseAllPanels ();
+		eyesPanel.SetActive (true);
+		eyesColorPanel.SetActive (true);
+	}
+
+	public void OpenSkinsPanel () {
+
+		CloseAllPanels ();
+		skinsPanel.SetActive (true);
+	}
+
+	public void ChangeSkin () {
 
 		headImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
 		bodyImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
 	}
 
-	public void SwitchEyes () {
+	public void OpenTopsPanel () {
 
-		eyesImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
+		CloseAllPanels ();
 	}
 
-	public void SwitchTop () {
+	public void OpenBottomsPanel () {
 
-		topImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
+		CloseAllPanels ();
 	}
 
-	public void SwitchBottoms () {
+	public void OpenShoesPanel () {
 
-		bottomsImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
+		CloseAllPanels ();
 	}
 
-    public void SwitchShoes () {
+	public void OpenNosesPanel () {
 
-		shoesImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
-    }
+		CloseAllPanels ();
+	}
+
+	public void OpenMouthsPanel () {
+
+		CloseAllPanels ();
+	}
+
+	public void OpenAccessoriesPanel () {
+
+		CloseAllPanels ();
+	}
 }
