@@ -68,7 +68,7 @@ public class Answer : MonoBehaviour {
     }
 
     public void OnPointerDown() {
-
+        SelectAnswer();
     }
 
     public int GetIndex() {
@@ -77,5 +77,9 @@ public class Answer : MonoBehaviour {
 
     public string GetAnswer() {
         return answerText;
+    }
+
+    public void SelectAnswer() {
+        gameController.CheckAnswer(answerIndex);
     }
 }

@@ -5,6 +5,8 @@ public class Character : MonoBehaviour {
     
     [SerializeField] GameObject speechBubble;
 
+    bool tapped = false;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -16,6 +18,9 @@ public class Character : MonoBehaviour {
 	}
 
     public void OnPointerClick() {
-        speechBubble.SetActive(true);
+        if (!tapped) {
+            speechBubble.SetActive(true);
+            tapped = true;
+        }
     }
 }
