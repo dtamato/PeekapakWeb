@@ -19,8 +19,13 @@ public class Character : MonoBehaviour {
 
     public void OnPointerClick() {
         if (!tapped) {
+            Debug.Log("Tapping");
             speechBubble.SetActive(true);
             tapped = true;
         }
+    }
+
+    public void SetTapped(bool newState) {
+        tapped = newState;
     }
 }

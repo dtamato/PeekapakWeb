@@ -3,10 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class EmotionalJourneyGameController : MonoBehaviour {
-
-    public enum AnswerState { NO_ANSWER, WRONG_ANSWER, RIGHT_ANSWER };
-    AnswerState answer;
-
+    
     [SerializeField] GameObject answerPrefab;
 
     [Header("Text References: ")]
@@ -18,6 +15,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     [Header("UI Refernces: ")]
     [SerializeField] GameObject dialogueUI;
     [SerializeField] GameObject gameBoard;
+    [SerializeField] GameObject character;
     [SerializeField] Text dialogueTextUI;
     [SerializeField] Text questionUI;
     [SerializeField] Transform[] answersUI;
@@ -34,24 +32,27 @@ public class EmotionalJourneyGameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        answer = AnswerState.NO_ANSWER;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0) && canClick) {
             Debug.Log("Clicking");
-            // CheckStage();
             ShowGameboard();
         }
 
-        if (Input.GetMouseButtonDown(0) && answeredQuestion) {
+        if (Input.GetMouseButtonDown(0) && answeredQuestion && stage <= 1) {
             Debug.Log("Clicking");
-            // CheckStage();
             ShowGameboard();
+        }
+
+        if (Input.GetMouseButtonDown(0) && answeredQuestion && stage ==  2){
+            Debug.Log("End Game");
+            EndGame();
         }
     }
 
+    // Check which book/location the game is in a load the arrays accordingly
     void CheckBook (){
         if (currentBook == "SR") {
             Debug.Log("Filling Book");
@@ -93,15 +94,32 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         if (stage == 0) { i = 0; }
         else if (stage == 1) { i = 3; }
 
+        // If you are not responding to a question, initilaize the board
         if (!answeredQuestion) {
-            // Fill the questions
+            // Fill and create the questions
             for (; i < 3; i++) {
+                // Create a new Answer
                 GameObject newAnswer = Instantiate(answerPrefab, answersUI[i].localPosition, answersUI[i].localRotation) as GameObject;
-                newAnswer.GetComponent<Answer>().Initialize(answers[i * (stage + 1)].GetIndex(), answers[i * (stage + 1)].GetAnswer());
+                newAnswer.GetComponent<Answer>().Initialize(answers[i].GetIndex(), answers[i].GetAnswer());
                 newAnswer.transform.SetParent(answersUI[i]);
                 newAnswer.transform.localPosition = Vector3.zero;
                 newAnswer.transform.localScale = Vector3.one;
                 newAnswer.GetComponent<Answer>().SetText();
+            }
+        }
+        // Otherwise, just fill the questions depending on which stage we are in
+        else {
+            for (int j = 0; j < 3; j++) {
+                // get rid of the current answer 
+                Destroy(answersUI[j].GetChild(0).gameObject);
+                // Reset a new one 
+                GameObject newAnswer = Instantiate(answerPrefab, answersUI[j].localPosition, answersUI[j].localRotation) as GameObject;
+                newAnswer.GetComponent<Answer>().Initialize(answers[i].GetIndex(), answers[i].GetAnswer());
+                newAnswer.transform.SetParent(answersUI[j]);
+                newAnswer.transform.localPosition = Vector3.zero;
+                newAnswer.transform.localScale = Vector3.one;
+                newAnswer.GetComponent<Answer>().SetText();
+                i++;
             }
         }
 
@@ -112,22 +130,41 @@ public class EmotionalJourneyGameController : MonoBehaviour {
 
     void ShowAnswerResult(bool right) {
         // answeredQuestion = true;
-
+        // Turn off the Game board 
+        gameBoard.SetActive(false);
+        // Turn on the dilaogue box
+        dialogueUI.SetActive(true);
+        // Allow for any-time player inut
+        StartCoroutine(ToggleAnswerQuestion());
         if (right) {
             Debug.Log("Next Question please!");
-
+            if (stage == 0) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[2]; }
+            else if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[4]; }
+            stage++;
         } else {
             Debug.Log("WrongAnswer");
-            // Turn off the Game board 
-            gameBoard.SetActive(false);
-            // Turn on the dilaogue box
-            dialogueUI.SetActive(true);
-            // Allow for any-time player inut
-            StartCoroutine(ToggleAnswerQuestion());
             // Present the wrong answer text depending on the stage
             if (stage == 0) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[1]; }
             else if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[3]; }
         }
+    }
+
+    void EndGame() {
+        dialogueUI.SetActive(false);
+        // Make Leo Look Sad again??
+
+        // Allow player to playe again
+        character.GetComponent<Character>().SetTapped(false);
+        // Remove all of the old answers
+        foreach (Transform answer in answersUI) {
+            Destroy(answer.GetChild(0).gameObject);
+        }
+        // Reset all booleans 
+        canClick = false;
+        gameStarted = false;
+        answeredQuestion = false;
+        // Reset Stage
+        stage = 0;
     }
 
     IEnumerator ToggleCanClick() {
@@ -138,10 +175,6 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     IEnumerator ToggleAnswerQuestion()  {
         yield return new WaitForSeconds(1);
         answeredQuestion = true;
-    }
-
-    void ResetStage() {
-        // ShowGameboard(true);
     }
 
     public void CheckAnswer(int answerIndex) {
@@ -163,23 +196,24 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     }
 
     public void RightAnswer(int answerIndex) {
-        stage++;
+        // stage++;
         ShowAnswerResult(true);
     }
 
     public void WrongAnswer(int answerIndex) {
-        //ShowGameboard(true);
         ShowAnswerResult(false);
     }
 
     public void StartGame(string book) {
-        gameStarted = true;
-        stage = 0;
-        currentBook = book;
-        CheckBook();
-        dialogueUI.SetActive(true);
-        dialogueTextUI.text = dialogue[0];
-        StartCoroutine(ToggleCanClick());
+        if (gameStarted == false) {
+            gameStarted = true;
+            stage = 0;
+            currentBook = book;
+            CheckBook();
+            dialogueUI.SetActive(true);
+            dialogueTextUI.text = dialogue[0];
+            StartCoroutine(ToggleCanClick());
+        }
     }
 
     public bool GameStarted() {

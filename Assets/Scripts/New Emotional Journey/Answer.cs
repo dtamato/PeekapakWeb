@@ -56,6 +56,7 @@ public class Answer : MonoBehaviour {
     public void SetText() {
         answerTextUI.text = answerText;
     }
+    
 
     public void OnPointerEnter() {
         grow = true;
