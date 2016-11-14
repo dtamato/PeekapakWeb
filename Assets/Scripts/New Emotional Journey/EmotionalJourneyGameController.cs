@@ -127,7 +127,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         canClick = false;
         answeredQuestion = false;
     }
-
+    
     void ShowAnswerResult(bool right) {
         // answeredQuestion = true;
         // Turn off the Game board 
@@ -141,6 +141,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
             if (stage == 0) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[2]; }
             else if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[4]; }
             stage++;
+            character.GetComponent<Character>().ChangeImage(stage);
         } else {
             Debug.Log("WrongAnswer");
             // Present the wrong answer text depending on the stage
@@ -165,6 +166,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         answeredQuestion = false;
         // Reset Stage
         stage = 0;
+        character.GetComponent<Character>().ChangeImage(stage);
     }
 
     IEnumerator ToggleCanClick() {
@@ -208,6 +210,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         if (gameStarted == false) {
             gameStarted = true;
             stage = 0;
+            character.GetComponent<Character>().ChangeImage(stage);
             currentBook = book;
             CheckBook();
             dialogueUI.SetActive(true);

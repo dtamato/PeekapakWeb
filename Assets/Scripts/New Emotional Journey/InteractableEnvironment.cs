@@ -23,7 +23,7 @@ public class InteractableEnvironment : MonoBehaviour {
         }
     }
 
-    public void onPointerExit() {
+    public void OnPointerExit() {
         icon.SetActive(false);
     }
 
