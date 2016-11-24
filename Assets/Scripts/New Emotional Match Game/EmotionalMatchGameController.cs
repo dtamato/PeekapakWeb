@@ -41,7 +41,7 @@ public class EmotionalMatchGameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        currentLocation = Location.TREE;
+        FindLocation();
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<EmotionalMatchUIController>();
         CheckLocation();
     }
@@ -50,6 +50,22 @@ public class EmotionalMatchGameController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void FindLocation() {
+        Debug.Log("Finidng Location: " + PlayerPrefs.GetString("Location"));
+        // Check the location and load the appropriate games
+        if (PlayerPrefs.GetString("Location") != null) {
+            if (PlayerPrefs.GetString("Location") == "Lucia's House") {
+                currentLocation = Location.LUCIAS_HOUSE;
+            } else if (PlayerPrefs.GetString("Location") == "School") {
+                currentLocation = Location.SCHOOL;
+            } else if (PlayerPrefs.GetString("Location") == "Tree") {
+                currentLocation = Location.TREE;
+            }
+        } else { 
+            currentLocation = Location.TREE;
+        }
+    }
 
     void CheckLocation() {
         switch (currentLocation) {
