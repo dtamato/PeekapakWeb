@@ -33,19 +33,11 @@ public class AvatarCustomization : MonoBehaviour {
 	[SerializeField] Image shoesImage;
 	[SerializeField] GameObject shoesPanel;
 
-	[Header("Nose")]
-	[SerializeField] Image noseImage;
-	[SerializeField] GameObject nosesPanel;
-
-	[Header("Mouth")]
-	[SerializeField] Image mouthImage;
-	[SerializeField] GameObject mouthsPanel;
-
 	[Header("Accessory")]
 	[SerializeField] Image accessoryImage;
 	[SerializeField] GameObject accessoriesPanel;
 
-	GameObject[] panelsArray = new GameObject[11];
+	GameObject[] panelsArray = new GameObject[9];
 
 
 	void Awake () {
@@ -58,9 +50,7 @@ public class AvatarCustomization : MonoBehaviour {
 		panelsArray[5] = topsPanel;
 		panelsArray[6] = bottomsPanel;
 		panelsArray[7] = shoesPanel;
-		panelsArray[8] = nosesPanel;
-		panelsArray[9] = mouthsPanel;
-		panelsArray[10] = accessoriesPanel;
+		panelsArray[8] = accessoriesPanel;
 
 		CloseAllPanels ();
 		OpenHairsPanel ();
@@ -143,22 +133,6 @@ public class AvatarCustomization : MonoBehaviour {
 
 		CloseAllPanels ();
 		shoesPanel.SetActive (true);
-	}
-	#endregion
-
-	#region NOSE
-	public void OpenNosesPanel () {
-
-		CloseAllPanels ();
-		nosesPanel.SetActive (true);
-	}
-	#endregion
-
-	#region MOUTH
-	public void OpenMouthsPanel () {
-
-		CloseAllPanels ();
-		mouthsPanel.SetActive (true);
 	}
 	#endregion
 
