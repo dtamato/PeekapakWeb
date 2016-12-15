@@ -63,9 +63,15 @@ public class EmotionalMatchUIController : MonoBehaviour {
             imageAnswers[i].sprite = newAnswerImages[i];
             imageAnswers[i].preserveAspect = true;
             // If this is the right answer
-            if (answerValues[i] == 1) { imageAnswers[i].transform.parent.gameObject.tag = "Right Answer"; }
+            if (answerValues[i] == 1) {
+                Debug.Log("Found the right answer");
+                imageAnswers[i].transform.parent.transform.parent.gameObject.tag = "Right Answer";
+            }
             // If it is the worng answer
-            else { imageAnswers[i].transform.parent.gameObject.tag = "Wrong Answer"; }
+            else {
+                Debug.Log("Found the wrong answer");
+                imageAnswers[i].transform.parent.transform.parent.gameObject.tag = "Wrong Answer";
+            }
         }
 
         LoadGame(newPanelImage, newScenario, newRightAnswer, newWrongAnswer);

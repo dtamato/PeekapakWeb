@@ -148,6 +148,8 @@ public class EmotionalMatchGameController : MonoBehaviour {
     }
 
     public void CheckAnswer(GameObject answer) {
+        Debug.Log("Checking Answer");
+
         if (answer.CompareTag("Right Answer")) {
             Debug.Log("right Answer");
             uiController.RightAnswer();
