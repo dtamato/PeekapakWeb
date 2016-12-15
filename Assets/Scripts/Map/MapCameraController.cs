@@ -52,34 +52,34 @@ public class MapCameraController : MonoBehaviour {
 		}
 	}
 
-//	IEnumerator ZoomCamera (float newSize) {
-//
-//		if(newSize < Camera.main.orthographicSize) { playerHUD.SetActive(false); }
-//
-//		while(Mathf.Abs(Camera.main.orthographicSize - newSize) > 0.5f) {
-//
-//			Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, newSize, 2 * Time.deltaTime);
-//			yield return null;
-//		}
-//
-//		if(newSize > Camera.main.orthographicSize) { playerHUD.SetActive(true); }
-//		Camera.main.orthographicSize = newSize;
-//		canMove = !canMove;
-//		StopAllCoroutines();
-//	}
+	IEnumerator ZoomCamera (float newSize) {
 
-//	IEnumerator MovePosition (Vector3 newPosition) {
-//
-//		while(Vector3.Distance(streetRectTransform.position, newPosition) > 0.5f) {
-//
-//			streetRectTransform.position = Vector3.Lerp(streetRectTransform.position, newPosition, 2 * Time.deltaTime);
-//			closeTreesRectTranform.position = Vector3.Lerp(closeTreesRectTranform.position, newPosition, 2 * Time.deltaTime);
-//			farTreesRectTransform.position = Vector3.Lerp(farTreesRectTransform.position, newPosition, 2 * Time.deltaTime);
-//			yield return null;
-//		}
-//
-//		streetRectTransform.position = newPosition;
-//		closeTreesRectTranform.position = newPosition;
-//		farTreesRectTransform.position = newPosition;
-//	}
+		if(newSize < Camera.main.orthographicSize) { playerHUD.SetActive(false); }
+
+		while(Mathf.Abs(Camera.main.orthographicSize - newSize) > 0.5f) {
+
+			Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, newSize, 2 * Time.deltaTime);
+			yield return null;
+		}
+
+		if(newSize > Camera.main.orthographicSize) { playerHUD.SetActive(true); }
+		Camera.main.orthographicSize = newSize;
+		canMove = !canMove;
+		StopAllCoroutines();
+	}
+
+	IEnumerator MovePosition (Vector3 newPosition) {
+
+		while(Vector3.Distance(streetRectTransform.position, newPosition) > 0.5f) {
+
+			streetRectTransform.position = Vector3.Lerp(streetRectTransform.position, newPosition, 2 * Time.deltaTime);
+			closeTreesRectTranform.position = Vector3.Lerp(closeTreesRectTranform.position, newPosition, 2 * Time.deltaTime);
+			farTreesRectTransform.position = Vector3.Lerp(farTreesRectTransform.position, newPosition, 2 * Time.deltaTime);
+			yield return null;
+		}
+
+		streetRectTransform.position = newPosition;
+		closeTreesRectTranform.position = newPosition;
+		farTreesRectTransform.position = newPosition;
+	}
 }
