@@ -19,7 +19,7 @@ public class MapCharacter : MonoBehaviour {
 
 		// Initialize
 		speechBubble.SetActive(false);
-		cameraController = Camera.main.GetComponent<MapCameraController>();
+		cameraController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MapCameraController>();
 	}
 
 	public void StartConversation () {
