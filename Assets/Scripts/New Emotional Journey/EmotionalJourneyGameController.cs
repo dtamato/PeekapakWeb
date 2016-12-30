@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class EmotionalJourneyGameController : MonoBehaviour {
     
@@ -10,7 +11,6 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     [SerializeField] string[] selfRegulation_Dialogue;
     [SerializeField] string[] selfRegulation_Questions;
     [SerializeField] string[] selfRegulation_Options;
-    [SerializeField] int[] selfRegulation_RightAnswers;
 
     [Header("UI Refernces: ")]
     [SerializeField] GameObject dialogueUI;
@@ -19,71 +19,67 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     [SerializeField] Text dialogueTextUI;
     [SerializeField] Text questionUI;
     [SerializeField] Transform[] answersUI;
+    [SerializeField] GameObject berryPanel;
 
     string currentBook;
     string[] dialogue;
     string[] questions;
-    Answer[] answers;
+    string[] answers;
+    string[] currentAnswers;
     int[] rightAnswers;
-    bool canClick = false;
     bool gameStarted = false;
-    bool answeredQuestion = false;
-    int stage;
+    public bool shuffled = false;
+
+    public int stage;
 
 	// Use this for initialization
 	void Start () {
+        // Debug.Log("Starting Game");
+        PlayerPrefs.SetInt("berryCount", 0);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetMouseButtonDown(0) && canClick) {
-            Debug.Log("Clicking");
-            ShowGameboard();
-        }
-
-        if (Input.GetMouseButtonDown(0) && answeredQuestion && stage <= 1) {
-            Debug.Log("Clicking");
-            ShowGameboard();
-        }
-
-        if (Input.GetMouseButtonDown(0) && answeredQuestion && stage ==  2){
-            Debug.Log("End Game");
-            EndGame();
-        }
-    }
-
     // Check which book/location the game is in a load the arrays accordingly
     void CheckBook (){
         if (currentBook == "SR") {
             Debug.Log("Filling Book");
 
             dialogue = new string[selfRegulation_Dialogue.Length];
-            answers = new Answer[selfRegulation_Options.Length];
             questions = new string[selfRegulation_Questions.Length];
-            rightAnswers = new int[selfRegulation_RightAnswers.Length];
+            answers = new string[selfRegulation_Options.Length];
+            rightAnswers = new int[3];
 
             for (int i = 0; i < selfRegulation_Dialogue.Length; i++) {
                 dialogue[i] = selfRegulation_Dialogue[i];
             }
             
             for(int i = 0; i < selfRegulation_Options.Length; i++) {
-                answers[i] = new Answer();
-                answers[i].Initialize(i, selfRegulation_Options[i]);
+                answers[i] = selfRegulation_Options[i];
             }
 
             for(int i = 0; i < selfRegulation_Questions.Length; i++) {
                 questions[i] = selfRegulation_Questions[i];
             }
 
-            for(int i = 0; i < selfRegulation_RightAnswers.Length; i++) {
-                rightAnswers[i] = selfRegulation_RightAnswers[i];
+            // The first answer before they are suffled is the right answer
+            for (int i = 0; i < 3; i++) {
+                if (i == 0) { rightAnswers[i] = 1; }
+                else { rightAnswers[i] = 0; }
             }
         }
     }
 
-    void ShowGameboard() {
-        Debug.Log("Show Gameboard");
-        
+    public void ShowGameboard() {
+        // Debug.Log("Show Gameboard");
+
+        if (stage == 2) {
+            EndGame();
+            OpenEndPanel();
+        } else {
+            InitializeBoard();
+        }
+    }
+
+    void InitializeBoard() {
         // Toggle on and off the panles accordingly
         gameBoard.SetActive(true);
         questionUI.text = questions[stage];
@@ -93,117 +89,128 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         int i = 0;
         if (stage == 0) { i = 0; }
         else if (stage == 1) { i = 3; }
-
-        // If you are not responding to a question, initilaize the board
-        if (!answeredQuestion) {
-            // Fill and create the questions
-            for (; i < 3; i++) {
-                // Create a new Answer
-                GameObject newAnswer = Instantiate(answerPrefab, answersUI[i].localPosition, answersUI[i].localRotation) as GameObject;
-                newAnswer.GetComponent<Answer>().Initialize(answers[i].GetIndex(), answers[i].GetAnswer());
-                newAnswer.transform.SetParent(answersUI[i]);
-                newAnswer.transform.localPosition = Vector3.zero;
-                newAnswer.transform.localScale = Vector3.one;
-                newAnswer.GetComponent<Answer>().SetText();
-            }
+        int target = i + 3;
+        
+        if (!shuffled) {
+            // Initialize the Answers
+            InitializeAnswers(i, target);
+            // Shuffle Current Answers
+            ShuffleAnswers();
+            // Place Current Answers
+            PlaceAnswers();
         }
-        // Otherwise, just fill the questions depending on which stage we are in
-        else {
-            for (int j = 0; j < 3; j++) {
-                // get rid of the current answer 
-                Destroy(answersUI[j].GetChild(0).gameObject);
-                // Reset a new one 
-                GameObject newAnswer = Instantiate(answerPrefab, answersUI[j].localPosition, answersUI[j].localRotation) as GameObject;
-                newAnswer.GetComponent<Answer>().Initialize(answers[i].GetIndex(), answers[i].GetAnswer());
-                newAnswer.transform.SetParent(answersUI[j]);
-                newAnswer.transform.localPosition = Vector3.zero;
-                newAnswer.transform.localScale = Vector3.one;
-                newAnswer.GetComponent<Answer>().SetText();
-                i++;
-            }
-        }
-
-        // Reset Booleans
-        canClick = false;
-        answeredQuestion = false;
     }
-    
+
+    void InitializeAnswers(int i, int target) {
+        // Clear the current answers array
+        currentAnswers = new string[3];
+
+        for (int j = 0; j < 3; j++) {
+            // get rid of the current answer 
+            Destroy(answersUI[j].GetChild(0).gameObject);
+        }
+
+        for (int j = 0; j < 3; j++) {
+            if (j == 0) { rightAnswers[j] = 1; }
+            else { rightAnswers[j] = 0; }
+        }
+
+        // Fill the current answers array
+        int counter = 0;
+        for (; i < target; i++)  {
+            Debug.Log("Filling Array");
+            currentAnswers[counter] = answers[i];
+            counter++;
+        }
+    }
+
+    void ShuffleAnswers() {
+        shuffled = true;
+        Debug.Log("Shuffling");
+        for (int i = 0; i < currentAnswers.Length; i++) {
+            // Set a temp holder for the index you are swapping
+            string tempAnswer = currentAnswers[i];
+            int tempInt = rightAnswers[i];
+            // Get a random Value
+            int rand = Random.Range(0, currentAnswers.Length - 1);
+            // Set the new random answer
+            currentAnswers[i] = currentAnswers[rand];
+            rightAnswers[i] = rightAnswers[rand];
+            // Set the random slot to your temp data
+            currentAnswers[rand] = tempAnswer;
+            rightAnswers[rand] = tempInt;
+        }
+    }
+
+    void PlaceAnswers() {
+        for (int i = 0; i < 3; i++) {
+            // Create a new Answer
+            GameObject newAnswer = Instantiate(answerPrefab, answersUI[i].localPosition, answersUI[i].localRotation) as GameObject;
+            newAnswer.GetComponent<Answer>().Initialize(currentAnswers[i]);
+            newAnswer.transform.SetParent(answersUI[i]);
+            newAnswer.transform.localPosition = Vector3.zero;
+            newAnswer.transform.localScale = Vector3.one;
+            newAnswer.GetComponent<Answer>().SetText();
+            if (rightAnswers[i] == 1) { newAnswer.GetComponent<Answer>().SetRightAnswer(true); }
+        }
+    }
+
     void ShowAnswerResult(bool right) {
-        // answeredQuestion = true;
         // Turn off the Game board 
         gameBoard.SetActive(false);
         // Turn on the dilaogue box
         dialogueUI.SetActive(true);
-        // Allow for any-time player inut
-        StartCoroutine(ToggleAnswerQuestion());
-        if (right) {
-            Debug.Log("Next Question please!");
-            if (stage == 0) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[2]; }
-            else if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[4]; }
-            stage++;
-            character.GetComponent<Character>().ChangeImage(stage);
-        } else {
-            Debug.Log("WrongAnswer");
-            // Present the wrong answer text depending on the stage
-            if (stage == 0) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[1]; }
-            else if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[3]; }
-        }
+        NextQuestion();
     }
 
-    void EndGame() {
-        dialogueUI.SetActive(false);
-        // Make Leo Look Sad again??
-
-        // Allow player to playe again
-        character.GetComponent<Character>().SetTapped(false);
-        // Remove all of the old answers
-        foreach (Transform answer in answersUI) {
-            Destroy(answer.GetChild(0).gameObject);
-        }
-        // Reset all booleans 
-        canClick = false;
-        gameStarted = false;
-        answeredQuestion = false;
-        // Reset Stage
-        stage = 0;
+    void NextQuestion() {
+        // Debug.Log("Next Question please!");
+        shuffled = false;
+        if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[2].Replace("___", "\n"); }
+        else if (stage == 2) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[4].Replace("___", "\n"); }
         character.GetComponent<Character>().ChangeImage(stage);
     }
 
-    IEnumerator ToggleCanClick() {
-        yield return new WaitForSeconds(1);
-        canClick = true;
+    public void OpenEndPanel() {
+        berryPanel.SetActive(true);
+        // berryPanel.GetComponentInChildren<BerryPanelController>().MoveBerry();
+        berryPanel.GetComponent<AnswerPanelController>().ToggleMoveIn(true);
     }
 
-    IEnumerator ToggleAnswerQuestion()  {
-        yield return new WaitForSeconds(1);
-        answeredQuestion = true;
+    public void EndGame() {
+        dialogueUI.SetActive(false);
+
+        // Allow player to playe again
+        // character.GetComponent<Character>().SetTapped(false);
+
+        // Reset all booleans 
+        gameStarted = false;
+        // Reset Stage
+        stage = 0;
+        // character.GetComponent<Character>().ChangeImage(stage);
     }
 
-    public void CheckAnswer(int answerIndex) {
-        Debug.Log("Checking Answer");
-        if(stage == 0) {
-            if (answerIndex == rightAnswers[stage]) {
-                RightAnswer(answerIndex);
-            } else {
-                WrongAnswer(answerIndex);
-            }
+    public void CheckAnswer(bool rightAnswer) {
+        // Debug.Log("Checking Answer");
+        if (rightAnswer) {
+            RightAnswer();
+        } else {
+            WrongAnswer();
         }
-        else if (stage == 1) {
-            if (answerIndex == rightAnswers[stage]) {
-                RightAnswer(answerIndex);
-            } else {
-                WrongAnswer(answerIndex);
-            }
-        }
     }
 
-    public void RightAnswer(int answerIndex) {
-        // stage++;
+    public void RightAnswer() {
+        stage++;
         ShowAnswerResult(true);
     }
 
-    public void WrongAnswer(int answerIndex) {
-        ShowAnswerResult(false);
+    void WrongAnswer() {
+        // Turn off the Game board 
+        gameBoard.SetActive(false);
+        // Turn on the dilaogue box
+        dialogueUI.SetActive(true);
+        if (stage == 0) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[1]; }
+        else if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[3]; }
     }
 
     public void StartGame(string book) {
@@ -215,7 +222,6 @@ public class EmotionalJourneyGameController : MonoBehaviour {
             CheckBook();
             dialogueUI.SetActive(true);
             dialogueTextUI.text = dialogue[0];
-            StartCoroutine(ToggleCanClick());
         }
     }
 

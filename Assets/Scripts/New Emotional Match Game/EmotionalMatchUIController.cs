@@ -17,17 +17,7 @@ public class EmotionalMatchUIController : MonoBehaviour {
     [SerializeField] Text scenarioText;
     [SerializeField] Text wrongAnswerRespose;
     [SerializeField] Text rightAnswerRespose;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+    
     void LoadGame(Sprite newPanelImage, string newScenario, string newRightAnswer, string newWrongAnswer) {
         // Set the Panel Image
         panelImage.sprite = newPanelImage;
@@ -78,20 +68,17 @@ public class EmotionalMatchUIController : MonoBehaviour {
     }
 
     public void RightAnswer() {
-        // gameBoard.SetActive(false);
         rightAnswerPanel.SetActive(true);
+        rightAnswerPanel.GetComponent<AnswerPanelController>().ToggleMoveIn(true);
     }
 
     public void WrongAnswer() {
-        // gameBoard.SetActive(false);
+        Debug.Log("In WrongAnswer()");
         wrongAnswerPanel.SetActive(true);
+        wrongAnswerPanel.GetComponent<AnswerPanelController>().ToggleMoveIn(false);
     }
 
     public void TryAgain() {
-        if (wrongAnswerPanel.activeSelf) {
-            wrongAnswerPanel.SetActive(false);
-        } else if (rightAnswerPanel.activeSelf) {
-            rightAnswerPanel.SetActive(false);
-        }
+        wrongAnswerPanel.GetComponent<AnswerPanelController>().ToggleMoveOut(false);
     }
 }

@@ -13,9 +13,9 @@ public class Answer : MonoBehaviour {
     // Feedback Variables
     bool grow = false;
     bool shrink = false;
+    bool rightAnswer = false;
     float speed = 5;
-
-    int answerIndex;
+    
     string answerText;
 
     // Use this for initialization
@@ -48,8 +48,7 @@ public class Answer : MonoBehaviour {
         }
     }
 
-    public void Initialize(int newIndex, string newString) {
-        answerIndex = newIndex;
+    public void Initialize(string newString) {
         answerText = newString;
     }
 
@@ -72,15 +71,19 @@ public class Answer : MonoBehaviour {
         SelectAnswer();
     }
 
-    public int GetIndex() {
-        return answerIndex;
-    }
-
     public string GetAnswer() {
         return answerText;
     }
 
     public void SelectAnswer() {
-        gameController.CheckAnswer(answerIndex);
+        gameController.CheckAnswer(rightAnswer);
+    }
+
+    public void SetRightAnswer(bool rightAnswerState) {
+        rightAnswer = rightAnswerState;
+    }
+
+    public bool IsRightAnswer() {
+        return rightAnswer;
     }
 }

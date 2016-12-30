@@ -32,7 +32,8 @@ public class Character : MonoBehaviour {
     }
 
     public void OnPointerEnter() {
-        if (!tapped) { 
+        if (!tapped) {
+            // tapped = true;
             characterGlow.SetActive(true);
         }
     }
