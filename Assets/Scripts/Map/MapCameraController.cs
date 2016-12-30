@@ -72,14 +72,10 @@ public class MapCameraController : MonoBehaviour {
 
 		while(Vector3.Distance(streetRectTransform.position, newPosition) > 0.5f) {
 
-			streetRectTransform.position = Vector3.Lerp(streetRectTransform.position, newPosition, 2 * Time.deltaTime);
-			closeTreesRectTranform.position = Vector3.Lerp(closeTreesRectTranform.position, newPosition, 2 * Time.deltaTime);
-			farTreesRectTransform.position = Vector3.Lerp(farTreesRectTransform.position, newPosition, 2 * Time.deltaTime);
+			Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, newPosition, 2 * Time.deltaTime);
 			yield return null;
 		}
 
-		streetRectTransform.position = newPosition;
-		closeTreesRectTranform.position = newPosition;
-		farTreesRectTransform.position = newPosition;
+		Camera.main.transform.position = newPosition;
 	}
 }

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System.Collections;
 
 [DisallowMultipleComponent]
 public class MapCharacter : MonoBehaviour {
@@ -28,7 +30,8 @@ public class MapCharacter : MonoBehaviour {
 		initialCameraSize = Camera.main.orthographicSize;
 		initialCameraPosition = Camera.main.transform.position;
 
-		this.GetComponent<Button>().interactable = false;
+		this.GetComponentInChildren<Button>().interactable = false;
+		this.GetComponentInChildren<EventTrigger>().enabled = false;
 		speechBubble.SetActive(true);
 
 		cameraController.StopAllCoroutines();
@@ -38,7 +41,7 @@ public class MapCharacter : MonoBehaviour {
 
 	public void LeaveConversation () {
 
-		this.GetComponent<Button>().interactable = true;
+		this.GetComponentInChildren<Button>().interactable = true;
 		speechBubble.SetActive(false);
 
 		cameraController.StopAllCoroutines();
