@@ -8,9 +8,54 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     [SerializeField] GameObject answerPrefab;
 
     [Header("Text References: ")]
-    [SerializeField] string[] selfRegulation_Dialogue;
-    [SerializeField] string[] selfRegulation_Questions;
-    [SerializeField] string[] selfRegulation_Options;
+    [Header("Leo's Home: ")]
+    [SerializeField] string[] leosHome_Dialogue;
+    [SerializeField] string[] leosHome_Questions;
+    [SerializeField] string[] leosHome_Options;
+    [SerializeField] string leosHome_infoBit;
+
+    [Header("Library:")]
+    [SerializeField] string[] library_Dialogue;
+    [SerializeField] string[] library_Questions;
+    [SerializeField] string[] library_Options;
+    [SerializeField] string library_infoBit;
+
+    [Header("School Hallway: ")]
+    [SerializeField] string[] schoolHall_Dialogue;
+    [SerializeField] string[] schoolHall_Questions;
+    [SerializeField] string[] schoolHall_Options;
+    [SerializeField] string schoolHall_infoBit;
+
+    [Header("Tree Of Gratitude: ")]
+    [SerializeField] string[] TOG_Dialogue;
+    [SerializeField] string[] TOG_Questions;
+    [SerializeField] string[] TOG_Options;
+    [SerializeField] string TOG_infoBit;
+
+    [Header("Classroom: ")]
+
+    [Header("Image References: ")]
+    [Header("Leo's Home: ")]
+    [SerializeField] Sprite leosHome_BG;
+    [SerializeField] Sprite leosHome_CharacterGlow;
+    [SerializeField] Sprite[] leosHome_Character;
+
+    [Header("Library:")]
+    [SerializeField] Sprite library_BG;
+    [SerializeField] Sprite library_CharacterGlow;
+    [SerializeField] Sprite[] library_Character;
+
+    [Header("School Hallway: ")]
+    [SerializeField] Sprite schoolHall_BG;
+    [SerializeField] Sprite schoolHall_CharacterGlow;
+    [SerializeField] Sprite[] schoolHall_Character;
+
+    [Header("Tree Of Gratitude: ")]
+    [SerializeField] Sprite TOG_BG;
+    [SerializeField] Sprite TOG_CharacterGlow;
+    [SerializeField] Sprite[] TOG_Character;
+
+    [Header("Classroom: ")]
 
     [Header("UI Refernces: ")]
     [SerializeField] GameObject dialogueUI;
@@ -18,54 +63,88 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     [SerializeField] GameObject character;
     [SerializeField] Text dialogueTextUI;
     [SerializeField] Text questionUI;
+    [SerializeField] Text infoBitUI;
     [SerializeField] Transform[] answersUI;
     [SerializeField] GameObject berryPanel;
+    [SerializeField] Image background;
 
-    string currentBook;
+    [Header("Infobit Locations(this will take a while)")]
+    [SerializeField] Vector3[] infoBitLocations;
+
+    // Variables and Arrays being send and used by the game
+    string currentBook = "TOG";
+    string defaultInfoBit = "such information, much knowledge, very insight";
     string[] dialogue;
     string[] questions;
     string[] answers;
     string[] currentAnswers;
     int[] rightAnswers;
-    bool gameStarted = false;
-    public bool shuffled = false;
+    Sprite bg;
 
-    public int stage;
+    bool gameStarted = false;
+    bool shuffled = false;
+    int stage;
 
 	// Use this for initialization
 	void Start () {
-        // Debug.Log("Starting Game");
+        CheckBook();
         PlayerPrefs.SetInt("berryCount", 0);
 	}
 	
     // Check which book/location the game is in a load the arrays accordingly
     void CheckBook (){
-        if (currentBook == "SR") {
-            Debug.Log("Filling Book");
-
-            dialogue = new string[selfRegulation_Dialogue.Length];
-            questions = new string[selfRegulation_Questions.Length];
-            answers = new string[selfRegulation_Options.Length];
-            rightAnswers = new int[3];
-
-            for (int i = 0; i < selfRegulation_Dialogue.Length; i++) {
-                dialogue[i] = selfRegulation_Dialogue[i];
-            }
-            
-            for(int i = 0; i < selfRegulation_Options.Length; i++) {
-                answers[i] = selfRegulation_Options[i];
-            }
-
-            for(int i = 0; i < selfRegulation_Questions.Length; i++) {
-                questions[i] = selfRegulation_Questions[i];
-            }
-
-            // The first answer before they are suffled is the right answer
-            for (int i = 0; i < 3; i++) {
-                if (i == 0) { rightAnswers[i] = 1; }
-                else { rightAnswers[i] = 0; }
-            }
+        // Current Book will check the player prefs value, currentBook, that will be set in the map scene
+        if (currentBook == "Leo's Home") {
+            // Filling Leo's Home
+            FillArrays(leosHome_Dialogue, leosHome_Options, leosHome_Questions, leosHome_infoBit);
+            SetUpScene(leosHome_BG, leosHome_CharacterGlow, leosHome_Character);            
         }
+        if (currentBook == "Library") {
+            FillArrays(library_Dialogue, library_Options, library_Questions, library_infoBit);
+            SetUpScene(library_BG, library_CharacterGlow, library_Character);
+        }
+        if (currentBook == "School Hallway") {
+            FillArrays(schoolHall_Dialogue, schoolHall_Options, schoolHall_Questions, schoolHall_infoBit);
+            SetUpScene(schoolHall_BG, schoolHall_CharacterGlow, schoolHall_Character);
+        }
+        if (currentBook == "TOG") {
+            FillArrays(TOG_Dialogue, TOG_Options, TOG_Questions, TOG_infoBit);
+            SetUpScene(TOG_BG, TOG_CharacterGlow, TOG_Character);
+        }
+    }
+
+    void SetUpScene(Sprite newBG, Sprite newCharacterGlow, Sprite[] newCharacterMoods) {
+        bg = newBG;
+        background.sprite = bg;
+        character.GetComponent<Character>().SetImageList(newCharacterMoods, newCharacterGlow);
+    }
+    
+    void FillArrays(string[] newDialogue, string[] newOptions, string[] newQuestions, string newInfobit) {
+        dialogue = new string[newDialogue.Length];
+        answers = new string[newOptions.Length];
+        questions = new string[leosHome_Questions.Length];
+        rightAnswers = new int[3];
+
+        for (int i = 0; i < newDialogue.Length; i++) {
+            dialogue[i] = newDialogue[i];
+        }
+
+        for (int i = 0; i < newOptions.Length; i++){
+            answers[i] = newOptions[i];
+        }
+
+        for (int i = 0; i < newQuestions.Length; i++) {
+            questions[i] = newQuestions[i];
+        }
+
+        // The first answer before they are suffled is the right answer
+        for (int i = 0; i < 3; i++) {
+            if (i == 0) { rightAnswers[i] = 1; }
+            else { rightAnswers[i] = 0; }
+        }
+
+        // Set the infoBit
+        infoBitUI.text = newInfobit;
     }
 
     public void ShowGameboard() {
@@ -173,21 +252,16 @@ public class EmotionalJourneyGameController : MonoBehaviour {
 
     public void OpenEndPanel() {
         berryPanel.SetActive(true);
-        // berryPanel.GetComponentInChildren<BerryPanelController>().MoveBerry();
         berryPanel.GetComponent<AnswerPanelController>().ToggleMoveIn(true);
     }
 
     public void EndGame() {
         dialogueUI.SetActive(false);
-
-        // Allow player to playe again
-        // character.GetComponent<Character>().SetTapped(false);
-
+        
         // Reset all booleans 
         gameStarted = false;
         // Reset Stage
         stage = 0;
-        // character.GetComponent<Character>().ChangeImage(stage);
     }
 
     public void CheckAnswer(bool rightAnswer) {
@@ -213,12 +287,13 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         else if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[3]; }
     }
 
-    public void StartGame(string book) {
+    // being called from the character - Get the current location from the player prefs later
+    public void StartGame() {
         if (gameStarted == false) {
             gameStarted = true;
             stage = 0;
             character.GetComponent<Character>().ChangeImage(stage);
-            currentBook = book;
+            // currentBook = book;
             CheckBook();
             dialogueUI.SetActive(true);
             dialogueTextUI.text = dialogue[0];

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour {
     
@@ -48,5 +49,15 @@ public class Character : MonoBehaviour {
             if (stage == i) { images[i].SetActive(true); } 
             else { images[i].SetActive(false); }
         }
+    }
+
+    // This will be called from this games controller and pass in the right sprites for the location
+    public void SetImageList(Sprite[] newImages, Sprite newCharacterGlow) {
+        // Fill the character Sprite Sheet
+        for (int i = 0; i < newImages.Length; i++) {
+            images[i].GetComponent<Image>().sprite = newImages[i];
+        }
+        // Set the Glow
+        characterGlow.GetComponent<Image>().sprite = newCharacterGlow;
     }
 }
