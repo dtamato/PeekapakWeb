@@ -30,22 +30,30 @@ public class MapCharacter : MonoBehaviour {
 		initialCameraSize = Camera.main.orthographicSize;
 		initialCameraPosition = Camera.main.transform.position;
 
+		cameraController.SetCanMove(false);
 		this.GetComponentInChildren<Button>().interactable = false;
 		this.GetComponentInChildren<EventTrigger>().enabled = false;
 		speechBubble.SetActive(true);
 
 		cameraController.StopAllCoroutines();
 		cameraController.StartCoroutine("ZoomCamera", targetCameraSize);
-		cameraController.StartCoroutine("MovePosition", targetCameraPosition);
+
+		float newX = this.transform.position.x + 100;
+		float newY = Mathf.Clamp(this.transform.position.y, 20, 1000);
+		Vector3 newPosition = new Vector3(newX, newY, -10);
+		cameraController.StartCoroutine("MovePosition", newPosition);
 	}
 
 	public void LeaveConversation () {
 
 		this.GetComponentInChildren<Button>().interactable = true;
+		this.GetComponentInChildren<EventTrigger>().enabled = true;
 		speechBubble.SetActive(false);
+		this.transform.GetChild(0).gameObject.SetActive(false);
 
 		cameraController.StopAllCoroutines();
 		cameraController.StartCoroutine("ZoomCamera", initialCameraSize);
 		cameraController.StartCoroutine("MovePosition", initialCameraPosition);
+		cameraController.SetCanMove(true);
 	}
 }

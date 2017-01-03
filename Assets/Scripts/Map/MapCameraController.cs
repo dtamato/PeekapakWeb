@@ -58,13 +58,12 @@ public class MapCameraController : MonoBehaviour {
 
 		while(Mathf.Abs(Camera.main.orthographicSize - newSize) > 0.5f) {
 
-			Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, newSize, 2 * Time.deltaTime);
+			Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, newSize, 3 * Time.deltaTime);
 			yield return null;
 		}
 
 		if(newSize > Camera.main.orthographicSize) { playerHUD.SetActive(true); }
 		Camera.main.orthographicSize = newSize;
-		canMove = !canMove;
 		StopAllCoroutines();
 	}
 
@@ -72,10 +71,15 @@ public class MapCameraController : MonoBehaviour {
 
 		while(Vector3.Distance(streetRectTransform.position, newPosition) > 0.5f) {
 
-			Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, newPosition, 2 * Time.deltaTime);
+			Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, newPosition, 3 * Time.deltaTime);
 			yield return null;
 		}
 
 		Camera.main.transform.position = newPosition;
+	}
+
+	public void SetCanMove(bool newValue) {
+
+		canMove = newValue;
 	}
 }

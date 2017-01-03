@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: 0775524bfb4c59a4197e5487609cc5d5
+timeCreated: 1483404633
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PeekavilleSignGlow
+    21300002: PostalOfficeGlow
+    21300004: BankGlow
+    21300006: MuseumGlow
+    21300008: GalleryGlow
+    21300010: ToyShopGlow
+    21300012: BookShopGlow
+    21300014: LibraryGlow
+    21300016: IcecreamParlorGlow
+    21300018: BakeryGlow
+    21300020: FlowerShopGlow
+    21300022: TreeOfGratitudeGlow
+    21300024: MarketCafeGlow
+    21300026: MarketGlow
+    21300028: StatueGlow
+    21300030: StyleShopGlow
+    21300032: GamesTechGlow
+    21300034: SchoolGlow
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PeekavilleSignGlow
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 3875
+        width: 498
+        height: 359
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PostalOfficeGlow
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 3887
+        width: 460
+        height: 817
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BankGlow
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 3881
+        width: 355
+        height: 838
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MuseumGlow
+      rect:
+        serializedVersion: 2
+        x: 2986
+        y: 3881
+        width: 519
+        height: 878
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GalleryGlow
+      rect:
+        serializedVersion: 2
+        x: 4166
+        y: 3878
+        width: 348
+        height: 884
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ToyShopGlow
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 2658
+        width: 523
+        height: 611
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BookShopGlow
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 2670
+        width: 489
+        height: 916
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LibraryGlow
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2657
+        width: 1039
+        height: 827
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: IcecreamParlorGlow
+      rect:
+        serializedVersion: 2
+        x: 3991
+        y: 2685
+        width: 484
+        height: 641
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BakeryGlow
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1530
+        width: 407
+        height: 957
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FlowerShopGlow
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 1553
+        width: 409
+        height: 732
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TreeOfGratitudeGlow
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 1552
+        width: 855
+        height: 904
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MarketCafeGlow
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 1581
+        width: 747
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MarketGlow
+      rect:
+        serializedVersion: 2
+        x: 3494
+        y: 1573
+        width: 1183
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StatueGlow
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 242
+        width: 424
+        height: 559
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StyleShopGlow
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 264
+        width: 422
+        height: 755
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GamesTechGlow
+      rect:
+        serializedVersion: 2
+        x: 2409
+        y: 235
+        width: 477
+        height: 789
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SchoolGlow
+      rect:
+        serializedVersion: 2
+        x: 3162
+        y: 225
+        width: 1401
+        height: 1005
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
