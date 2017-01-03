@@ -8,6 +8,7 @@ public class MapCameraController : MonoBehaviour {
 	[SerializeField] float leftBoundary = -6702;
 	[SerializeField] float rightBoundary = 0;
 	[SerializeField] float leftFarTreesBoundary = -4472;
+	[SerializeField] float leftCloseTreesBoundary = -5600;
 	[SerializeField] float farTreesMoveSpeed = 0.5f;
 	[SerializeField] float closeTreesMoveSpeed = 1;
 	[SerializeField] float streetMoveSpeed = 1;
@@ -41,7 +42,7 @@ public class MapCameraController : MonoBehaviour {
 			newFarTreesX = Mathf.Clamp (newFarTreesX, leftFarTreesBoundary, rightBoundary);
 
 			float newCloseTreesX = closeTreesRectTranform.localPosition.x;
-			newCloseTreesX = Mathf.Clamp (newCloseTreesX, leftBoundary, rightBoundary);
+			newCloseTreesX = Mathf.Clamp (newCloseTreesX, leftCloseTreesBoundary, rightBoundary);
 
 			float newStreetX = streetRectTransform.localPosition.x;
 			newStreetX = Mathf.Clamp (newStreetX, leftBoundary, rightBoundary);
