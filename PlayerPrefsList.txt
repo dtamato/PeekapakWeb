@@ -1,0 +1,33 @@
+Player:
+string playerName;
+int berryCount;
+
+Map:
+string chosenLocation;
+chosenLocation could be: Library, LeosHome, SchoolHall, TOG
+
+Emotional Journey Game:
+// are toggled on when the player has accomplished this task so it isn't re-set everytime they leave the level
+bool Solved_LeosHomeEJ = false;
+bool Solved_LibraryEJ = false;
+bool Solved_SchoolHallEJ = false;
+bool Solved_TreeOfGratitudeEJ = false;
+
+Match Game:
+bool Solved_LeosHomeMG = false;
+bool Solved_LibraryMG = false;
+bool Solved_SchoolHallMG = false;
+bool Solved_TreeOfGratitudeMG = false;
+
+UI Needs:
+
+Avatar:
+
+White circle bold outline - no fill
+
+BackGrounds:
+Leo's home with Leo's shadow and get rid of the other shadow
+
+Map:
+
+The Statue of the president Guy

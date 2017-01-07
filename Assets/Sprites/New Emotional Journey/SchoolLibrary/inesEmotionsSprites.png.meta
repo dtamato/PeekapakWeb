@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: aee736ba6fde2444f898d9748b672ae3
+timeCreated: 1483215563
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: inesEmotionsSprites_0
+    21300002: inesEmotionsSprites_1
+    21300004: inesEmotionsSprites_2
+    21300006: inesEmotionsSprites_3
+    21300008: inesEmotionsSprites_4
+    21300010: inesEmotionsSprites_5
+    21300012: inesEmotionsSprites_6
+    21300014: inesEmotionsSprites_7
+    21300016: inesEmotionsSprites_8
+    21300018: inesEmotionsSprites_9
+    21300020: inesEmotionsSprites_10
+    21300022: inesEmotionsSprites_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: inesEmotionsSprites_0
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 4884
+        width: 683
+        height: 1194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_2
+      rect:
+        serializedVersion: 2
+        x: 3128
+        y: 4893
+        width: 720
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_4
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 3329
+        width: 793
+        height: 1305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_5
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 3329
+        width: 793
+        height: 1305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_6
+      rect:
+        serializedVersion: 2
+        x: 3043
+        y: 3351
+        width: 828
+        height: 1313
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_7
+      rect:
+        serializedVersion: 2
+        x: 4742
+        y: 3347
+        width: 829
+        height: 1311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_8
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 1663
+        width: 701
+        height: 1234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_10
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 160
+        width: 811
+        height: 1344
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_11
+      rect:
+        serializedVersion: 2
+        x: 3047
+        y: 161
+        width: 812
+        height: 1346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_1
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 4819
+        width: 793
+        height: 1305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_3
+      rect:
+        serializedVersion: 2
+        x: 4745
+        y: 4854
+        width: 793
+        height: 1305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: inesEmotionsSprites_9
+      rect:
+        serializedVersion: 2
+        x: 3052
+        y: 1628
+        width: 793
+        height: 1305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
