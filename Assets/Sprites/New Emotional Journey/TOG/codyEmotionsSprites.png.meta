@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6442391c0335d9f4681372c4509c9d53
-timeCreated: 1483223999
+timeCreated: 1483902380
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -73,7 +73,7 @@ TextureImporter:
         width: 740
         height: 1183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -86,7 +86,7 @@ TextureImporter:
         width: 662
         height: 1211
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -112,7 +112,7 @@ TextureImporter:
         width: 829
         height: 1271
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -125,7 +125,7 @@ TextureImporter:
         width: 751
         height: 1297
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -138,7 +138,7 @@ TextureImporter:
         width: 752
         height: 1297
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -151,7 +151,7 @@ TextureImporter:
         width: 606
         height: 1328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -164,7 +164,7 @@ TextureImporter:
         width: 695
         height: 1420
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -177,7 +177,7 @@ TextureImporter:
         width: 694
         height: 1420
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -185,8 +185,8 @@ TextureImporter:
       name: codyEmotionsSprites_0
       rect:
         serializedVersion: 2
-        x: 181
-        y: 4683
+        x: 158
+        y: 4691
         width: 831
         height: 1271
       alignment: 0

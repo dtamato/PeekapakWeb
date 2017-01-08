@@ -15,16 +15,18 @@ public class BerryPanelController : MonoBehaviour {
     float speed = 10;
 
     void Start() {
-        PlayerPrefs.SetInt("berryCount", 0);
+        // PlayerPrefs.SetInt("berryCount", 0);
     }
 
     public void MoveBerry() {
-        Debug.Log("Calling Move Berry");
+        // Debug.Log("Calling Move Berry");
+        nextButton.SetActive(false);
+        berryPanel.SetActive(true);
         StartCoroutine("CallMoveBerry");
     }
 
     IEnumerator CallMoveBerry() {
-        Debug.Log("In Coroutine");
+        // Debug.Log("In Coroutine");
         berries[berryCount].GetComponent<BerryController>().MoveBerry();
 
         yield return new WaitForSeconds(0.15f);

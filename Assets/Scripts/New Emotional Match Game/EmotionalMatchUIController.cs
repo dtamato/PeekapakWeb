@@ -43,7 +43,7 @@ public class EmotionalMatchUIController : MonoBehaviour {
     }
 
     public void LoadImageGame(Sprite[] newAnswerImages, string[] newAnswersText, int[] answerValues, Sprite newPanelImage, string newScenario, string newRightAnswer, string newWrongAnswer) {
-        Debug.Log("Loading Game Visuals");
+        // Debug.Log("Loading Game Visuals");
         // Make sure the right answer options are toggled on
         textAnswersPanel.SetActive(false);
         textAndImageAnswersPanel.SetActive(true);
@@ -54,12 +54,12 @@ public class EmotionalMatchUIController : MonoBehaviour {
             imageAnswers[i].preserveAspect = true;
             // If this is the right answer
             if (answerValues[i] == 1) {
-                Debug.Log("Found the right answer");
+                // Debug.Log("Found the right answer");
                 imageAnswers[i].transform.parent.transform.parent.gameObject.tag = "Right Answer";
             }
             // If it is the worng answer
             else {
-                Debug.Log("Found the wrong answer");
+                // Debug.Log("Found the wrong answer");
                 imageAnswers[i].transform.parent.transform.parent.gameObject.tag = "Wrong Answer";
             }
         }
@@ -73,7 +73,7 @@ public class EmotionalMatchUIController : MonoBehaviour {
     }
 
     public void WrongAnswer() {
-        Debug.Log("In WrongAnswer()");
+        // Debug.Log("In WrongAnswer()");
         wrongAnswerPanel.SetActive(true);
         wrongAnswerPanel.GetComponent<AnswerPanelController>().ToggleMoveIn(false);
     }

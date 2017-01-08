@@ -10,19 +10,9 @@ public class Character : MonoBehaviour {
 
     bool tapped = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public void OnPointerClick() {
         if (!tapped) {
-            Debug.Log("Tapping");
+            // Debug.Log("Tapping");
             speechBubble.SetActive(true);
             tapped = true;
         }
@@ -59,5 +49,9 @@ public class Character : MonoBehaviour {
         }
         // Set the Glow
         characterGlow.GetComponent<Image>().sprite = newCharacterGlow;
+    }
+
+    public void ToggleTapped() {
+        tapped = true;
     }
 }

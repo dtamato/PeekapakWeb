@@ -52,14 +52,14 @@ public class EmotionalMatchGameController : MonoBehaviour {
 	}
 
     void FindLocation() {
-        Debug.Log("Finidng Location: " + PlayerPrefs.GetString("Location"));
+        // Debug.Log("Finidng Location: " + PlayerPrefs.GetString("Location"));
         // Check the location and load the appropriate games
         if (PlayerPrefs.GetString("Location") != null) {
-            if (PlayerPrefs.GetString("Location") == "Lucia's House") {
+            if (PlayerPrefs.GetString("Location") == "Statue") {
                 currentLocation = Location.LUCIAS_HOUSE;
             } else if (PlayerPrefs.GetString("Location") == "School") {
                 currentLocation = Location.SCHOOL;
-            } else if (PlayerPrefs.GetString("Location") == "Tree") {
+            } else if (PlayerPrefs.GetString("Location") == "TOG") {
                 currentLocation = Location.TREE;
             }
         } else { 
