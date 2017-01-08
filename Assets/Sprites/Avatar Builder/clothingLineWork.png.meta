@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 48be014d03d27174fb1fc4ba157c9251
-timeCreated: 1483392497
+timeCreated: 1483740726
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: clothingLineWork_0
     21300002: clothingLineWork_1
+    21300004: clothingLineWork_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -63,7 +64,7 @@ TextureImporter:
         width: 7497
         height: 3111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -75,6 +76,19 @@ TextureImporter:
         y: 1912
         width: 592
         height: 1199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clothingLineWork_2
+      rect:
+        serializedVersion: 2
+        x: 4317
+        y: 1312
+        width: 514
+        height: 594
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

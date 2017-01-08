@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: a199ca5abcfa1ef4fbfc150d05af70d6
-timeCreated: 1483760292
+guid: 7a565864f3d61aa4babc5d2bb147e399
+timeCreated: 1483745651
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: top-1_icon
-    21300002: top-1
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -40,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -53,33 +51,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: top-1_icon
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 150
-        width: 154
-        height: 245
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: top-1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 504
-        height: 732
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

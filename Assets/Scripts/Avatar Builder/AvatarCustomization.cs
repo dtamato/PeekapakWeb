@@ -6,51 +6,50 @@ using UnityEngine.EventSystems;
 public class AvatarCustomization : MonoBehaviour {
 
 	[Header("Hair")]
-	[SerializeField] Image hairFrontImage;
-	[SerializeField] Image hairBackImage;
-	[SerializeField] GameObject hairsPanel;
-	[SerializeField] GameObject hairsColorPanel;
+	[SerializeField] GameObject hairPanel;
+	[SerializeField] GameObject hairColorPanel;
 
 	[Header("Eyes")]
-	[SerializeField] Image eyesImage;
-	[SerializeField] GameObject eyesPanel;
-	[SerializeField] GameObject eyesColorPanel;
+	[SerializeField] GameObject eyePanel;
+	[SerializeField] GameObject eyeColorPanel;
 
 	[Header("Skin")]
-	[SerializeField] Image headImage;
-	[SerializeField] Image bodyImage;
-	[SerializeField] GameObject skinsPanel;
+	[SerializeField] GameObject skinPanel;
 
 	[Header("Top")]
-	[SerializeField] Image topImage;
 	[SerializeField] GameObject topsPanel;
+	[SerializeField] GameObject topsColorPanel;
 
 	[Header("Bottoms")]
-	[SerializeField] Image bottomsImage;
 	[SerializeField] GameObject bottomsPanel;
+	[SerializeField] GameObject bottomsColorPanel;
 
 	[Header("Shoes")]
-	[SerializeField] Image shoesImage;
-	[SerializeField] GameObject shoesPanel;
+	[SerializeField] GameObject shoePanel;
+	[SerializeField] GameObject shoeColorPanel;
 
 	[Header("Accessory")]
-	[SerializeField] Image accessoryImage;
-	[SerializeField] GameObject accessoriesPanel;
+	[SerializeField] GameObject accessoryPanel;
+	[SerializeField] GameObject accessoryColorPanel;
 
-	GameObject[] panelsArray = new GameObject[9];
+	GameObject[] panelsArray = new GameObject[13];
 
 
 	void Awake () {
 
-		panelsArray[0] = hairsPanel;
-		panelsArray[1] = hairsColorPanel;
-		panelsArray[2] = eyesPanel;
-		panelsArray[3] = eyesColorPanel;
-		panelsArray[4] = skinsPanel;
+		panelsArray[0] = hairPanel;
+		panelsArray[1] = hairColorPanel;
+		panelsArray[2] = eyePanel;
+		panelsArray[3] = eyeColorPanel;
+		panelsArray[4] = skinPanel;
 		panelsArray[5] = topsPanel;
-		panelsArray[6] = bottomsPanel;
-		panelsArray[7] = shoesPanel;
-		panelsArray[8] = accessoriesPanel;
+		panelsArray[6] = topsColorPanel;
+		panelsArray[7] = bottomsPanel;
+		panelsArray[8] = bottomsColorPanel;
+		panelsArray[9] = shoePanel;
+		panelsArray[10] = shoeColorPanel;
+		panelsArray[11] = accessoryPanel;
+		panelsArray[12] = accessoryColorPanel;
 
 		CloseAllPanels ();
 		OpenHairsPanel ();
@@ -64,83 +63,51 @@ public class AvatarCustomization : MonoBehaviour {
 		}
 	}
 
-	public void ChangeAvatarPart (Image imageToChange) {
-
-		imageToChange.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image> ().sprite;
-	}
-
-	#region HAIR
 	public void OpenHairsPanel () {
 
 		CloseAllPanels ();
-		hairsPanel.SetActive (true);
-		hairsColorPanel.SetActive (true);
+		hairPanel.SetActive (true);
+		hairColorPanel.SetActive (true);
 	}
-
-	public void ChangeHairColor () {
-
-		hairBackImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image> ().color;
-		hairFrontImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image> ().color;
-	}
-	#endregion
-
-	#region EYES
+		
 	public void OpenEyesPanel () {
 
 		CloseAllPanels ();
-		eyesPanel.SetActive (true);
-		eyesColorPanel.SetActive (true);
+		eyePanel.SetActive (true);
+		eyeColorPanel.SetActive (true);
 	}
 
-	public void ChangeEyeColor () {
-
-		eyesImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image> ().color;
-	}
-	#endregion
-
-	#region SKIN
 	public void OpenSkinsPanel () {
 
 		CloseAllPanels ();
-		skinsPanel.SetActive (true);
+		skinPanel.SetActive (true);
 	}
-
-	public void ChangeSkin () {
-
-		headImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
-		bodyImage.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
-	}
-	#endregion
-
-	#region TOP
+		
 	public void OpenTopsPanel () {
 
 		CloseAllPanels ();
 		topsPanel.SetActive (true);
+		topsColorPanel.SetActive(true);
 	}
-	#endregion
-
-	#region BOTTOM
+		
 	public void OpenBottomsPanel () {
 
 		CloseAllPanels ();
 		bottomsPanel.SetActive (true);
+		bottomsColorPanel.SetActive(true);
 	}
-	#endregion
-
-	#region SHOES
+		
 	public void OpenShoesPanel () {
 
 		CloseAllPanels ();
-		shoesPanel.SetActive (true);
+		shoePanel.SetActive (true);
+		shoeColorPanel.SetActive(true);
 	}
-	#endregion
 
-	#region ACCESSORY
 	public void OpenAccessoriesPanel () {
 
 		CloseAllPanels ();
-		accessoriesPanel.SetActive (true);
+		accessoryPanel.SetActive (true);
+		accessoryColorPanel.SetActive(true);
 	}
-	#endregion
 }
