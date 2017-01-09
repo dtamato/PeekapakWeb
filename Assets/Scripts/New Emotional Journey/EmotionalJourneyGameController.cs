@@ -61,6 +61,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     [SerializeField] GameObject dialogueUI;
     [SerializeField] GameObject gameBoard;
     [SerializeField] GameObject character;
+    [SerializeField] GameObject characterSpeechBubble;
     [SerializeField] Text dialogueTextUI;
     [SerializeField] Text questionUI;
     [SerializeField] Text infoBitUI;
@@ -72,7 +73,8 @@ public class EmotionalJourneyGameController : MonoBehaviour {
     [SerializeField] Vector3[] infoBitLocations;
 
     // Variables and Arrays being send and used by the game
-    string currentBook = "TOG";
+    string currentBook = "Leo's Home";
+    string successCheck = "Solved_LeosHomeEJ";
     string defaultInfoBit = "such information, much knowledge, very insight";
     string[] dialogue;
     string[] questions;
@@ -87,8 +89,9 @@ public class EmotionalJourneyGameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        currentBook = PlayerPrefs.GetString("Location");
         CheckBook();
-        PlayerPrefs.SetInt("berryCount", 0);
+        // PlayerPrefs.SetInt("berryCount", 0);
 	}
 	
     // Check which book/location the game is in a load the arrays accordingly
@@ -96,18 +99,22 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         // Current Book will check the player prefs value, currentBook, that will be set in the map scene
         if (currentBook == "Leo's Home") {
             // Filling Leo's Home
+            successCheck = "Solved_LeosHomeEJ";
             FillArrays(leosHome_Dialogue, leosHome_Options, leosHome_Questions, leosHome_infoBit);
             SetUpScene(leosHome_BG, leosHome_CharacterGlow, leosHome_Character);            
         }
         if (currentBook == "Library") {
+            successCheck = "Solved_LibraryEJ";
             FillArrays(library_Dialogue, library_Options, library_Questions, library_infoBit);
             SetUpScene(library_BG, library_CharacterGlow, library_Character);
         }
         if (currentBook == "School Hallway") {
+            successCheck = "Solved_SchoolHallwayEJ";
             FillArrays(schoolHall_Dialogue, schoolHall_Options, schoolHall_Questions, schoolHall_infoBit);
             SetUpScene(schoolHall_BG, schoolHall_CharacterGlow, schoolHall_Character);
         }
         if (currentBook == "TOG") {
+            successCheck = "Solved_TreeOfGratitudeEJ";
             FillArrays(TOG_Dialogue, TOG_Options, TOG_Questions, TOG_infoBit);
             SetUpScene(TOG_BG, TOG_CharacterGlow, TOG_Character);
         }
@@ -117,6 +124,11 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         bg = newBG;
         background.sprite = bg;
         character.GetComponent<Character>().SetImageList(newCharacterMoods, newCharacterGlow);
+
+        // Check to see if this game has been played and won already - if it has, end the game right away
+        if (PlayerPrefs.GetInt(successCheck) == 1) {
+            EndGame();
+        }
     }
     
     void FillArrays(string[] newDialogue, string[] newOptions, string[] newQuestions, string newInfobit) {
@@ -151,8 +163,9 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         // Debug.Log("Show Gameboard");
 
         if (stage == 2) {
-            EndGame();
-            OpenEndPanel();
+            // EndGame();
+            // OpenEndPanel();
+            OpenCharacterThanks();
         } else {
             InitializeBoard();
         }
@@ -197,7 +210,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         // Fill the current answers array
         int counter = 0;
         for (; i < target; i++)  {
-            Debug.Log("Filling Array");
+            // Debug.Log("Filling Array");
             currentAnswers[counter] = answers[i];
             counter++;
         }
@@ -205,7 +218,7 @@ public class EmotionalJourneyGameController : MonoBehaviour {
 
     void ShuffleAnswers() {
         shuffled = true;
-        Debug.Log("Shuffling");
+        // Debug.Log("Shuffling");
         for (int i = 0; i < currentAnswers.Length; i++) {
             // Set a temp holder for the index you are swapping
             string tempAnswer = currentAnswers[i];
@@ -246,22 +259,31 @@ public class EmotionalJourneyGameController : MonoBehaviour {
         // Debug.Log("Next Question please!");
         shuffled = false;
         if (stage == 1) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[2].Replace("___", "\n"); }
-        else if (stage == 2) { dialogueUI.GetComponentInChildren<Text>().text = dialogue[4].Replace("___", "\n"); }
+        else if (stage == 2) {
+            // Debug.Log("Formatting");
+            dialogueUI.GetComponentInChildren<Text>().text = dialogue[4].Replace("___", "\n");
+        }
         character.GetComponent<Character>().ChangeImage(stage);
+    }
+
+    void OpenCharacterThanks() {
+        dialogueUI.SetActive(false);
+        characterSpeechBubble.SetActive(true);
+        characterSpeechBubble.GetComponentInChildren<Text>().text = dialogue[5];
     }
 
     public void OpenEndPanel() {
         berryPanel.SetActive(true);
         berryPanel.GetComponent<AnswerPanelController>().ToggleMoveIn(true);
+        characterSpeechBubble.SetActive(false);
     }
 
     public void EndGame() {
-        dialogueUI.SetActive(false);
-        
-        // Reset all booleans 
-        gameStarted = false;
-        // Reset Stage
-        stage = 0;
+        gameStarted = true;
+        character.GetComponent<Character>().ChangeImage(2);
+        // Set the value in the player prefs indicating this game has been played
+        PlayerPrefs.SetInt(successCheck, 1);
+        character.GetComponent<Character>().ToggleTapped();
     }
 
     public void CheckAnswer(bool rightAnswer) {

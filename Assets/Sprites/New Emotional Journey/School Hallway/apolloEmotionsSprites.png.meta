@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 65105f3aaa4f3d347a7342ae05b5c735
-timeCreated: 1483222245
+timeCreated: 1483910284
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -97,10 +97,10 @@ TextureImporter:
       name: apolloEmotionsSprites_3
       rect:
         serializedVersion: 2
-        x: 3052
-        y: 3112
-        width: 569
-        height: 1374
+        x: 2966
+        y: 3107
+        width: 690
+        height: 1388
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,9 +150,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2987
-        y: 1518
+        y: 1551
         width: 690
-        height: 1483
+        height: 1425
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,7 +204,7 @@ TextureImporter:
         x: 3976
         y: 39
         width: 752
-        height: 1533
+        height: 1497
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

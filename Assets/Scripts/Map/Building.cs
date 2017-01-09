@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Building : MonoBehaviour {
@@ -9,9 +10,10 @@ public class Building : MonoBehaviour {
 
 	[SerializeField] GameObject interior;
 	[SerializeField] GameObject textPanel;
+    [Tooltip ("Use this string to set the PlayerPref Location. EJ:  OR EM: Statue, School, TOG")] 
     [SerializeField] string destinationName;
 
-	bool isUnlocked = false;
+	[SerializeField] bool isUnlocked = false;
 
 	void Update () {
 
@@ -22,10 +24,12 @@ public class Building : MonoBehaviour {
 	}
 
 	public void OpenBuilding () {
-
+       
 		if(isUnlocked) {
 
-			interior.SetActive(true);
+            // interior.SetActive(true);
+            PlayerPrefs.SetString("Location", destinationName);
+            CheckLocationType();
 		}
 		else {
 
@@ -33,4 +37,23 @@ public class Building : MonoBehaviour {
 			textPanel.GetComponentInChildren<Text>().text = "Seems to be closed...";
 		}
 	}
+
+    void CheckLocationType() {
+        switch (locationType) {
+            case LocationType.EMOTIONAL_JOURNEY:
+                OpenEmotionalJourneyGame();
+                break;
+            case LocationType.EMOTIONAL_MATCH:
+                OpenEmotionalMatchGame();
+                break;
+        }
+    }
+
+    void OpenEmotionalMatchGame() {
+        SceneManager.LoadScene("Emotional Match Game 2.0");
+    }
+
+    void OpenEmotionalJourneyGame() {
+        SceneManager.LoadScene("Emotional Journey 2.0");
+    }
 }

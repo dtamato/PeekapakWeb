@@ -1,32 +1,37 @@
 Player:
 string playerName;
 int berryCount;
+string firstOpen = true;
 
 Map:
-string chosenLocation;
-chosenLocation could be: Library, LeosHome, SchoolHall, TOG
+string Location;
+chosenLocation could be: Library, Leo's Home, SchoolHall, TOG, School, Statue
 
 Emotional Journey Game:
 // are toggled on when the player has accomplished this task so it isn't re-set everytime they leave the level
 bool Solved_LeosHomeEJ = false;
 bool Solved_LibraryEJ = false;
-bool Solved_SchoolHallEJ = false;
+bool Solved_SchoolHallwayEJ = false;
 bool Solved_TreeOfGratitudeEJ = false;
 
 Match Game:
-bool Solved_LeosHomeMG = false;
-bool Solved_LibraryMG = false;
-bool Solved_SchoolHallMG = false;
+bool Solved_StatueMG = false;
+bool Solved_SchoolMG = false;
 bool Solved_TreeOfGratitudeMG = false;
 
+
+
 UI Needs:
+
+Panel for the info bit int the emotional journey game so that I can make it transparent
 
 Avatar:
 
 White circle bold outline - no fill
 
 BackGrounds:
-Leo's home with Leo's shadow and get rid of the other shadow
+Image of Cody Looking at his friends by the tree of Gratitude
+Characters to fill the Tree of Gratitude Scene
 
 Map:
 
