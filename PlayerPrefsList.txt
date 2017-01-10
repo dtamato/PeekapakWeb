@@ -29,8 +29,7 @@ Avatar:
 
 White circle bold outline - no fill
 
-BackGrounds:
-Image of Cody Looking at his friends by the tree of Gratitude
+BackGrounds: 
 Characters to fill the Tree of Gratitude Scene
 
 Map:
