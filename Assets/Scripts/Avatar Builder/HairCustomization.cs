@@ -12,10 +12,33 @@ public class HairCustomization : MonoBehaviour {
 	[SerializeField] Image hairFrontOutline;
 	[SerializeField] Image hairFrontPaint;
 
+	[SerializeField] Sprite roundCornerSquare;
 
-	public void ChangeHairOutline (Sprite newHairOutline) {
 
+	public void ChangeFrontHairOutline (Sprite newFrontHairOutline) {
 
+		hairFrontOutline.sprite = newFrontHairOutline;
+	}
+
+	public void ChangeFrontHairPaint(Sprite newFrontHairPaint) {
+
+		hairFrontPaint.sprite = newFrontHairPaint;
+	}
+
+	public void ChangeBackHairOutline (Sprite newBackHairOutline) {
+
+		hairBackOutline.sprite = newBackHairOutline;
+	}
+
+	public void ChangeBackHairPaint (Sprite newBackHairPaint) {
+
+		hairBackPaint.sprite = newBackHairPaint;
+	}
+
+	public void ClearBackHair () {
+
+		hairBackPaint.sprite = roundCornerSquare;
+		hairBackOutline.sprite = roundCornerSquare;
 	}
 
 	public void ChangeHairColor () {
