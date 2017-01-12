@@ -15,6 +15,9 @@ public class Building : MonoBehaviour {
 
 	[SerializeField] bool isUnlocked = false;
 
+	[SerializeField] string[] factoids;
+	int factoidsIndex = 0;
+
 	void Update () {
 
 		if(Input.GetKeyDown(KeyCode.Q)) {
@@ -34,7 +37,10 @@ public class Building : MonoBehaviour {
 		else {
 
 			textPanel.SetActive(true);
-			textPanel.GetComponentInChildren<Text>().text = "Seems to be closed...";
+			textPanel.GetComponentInChildren<Text>().text = factoids[factoidsIndex];
+
+			factoidsIndex++;
+			if(factoidsIndex >= factoids.Length) { factoidsIndex = 0; }
 		}
 	}
 
