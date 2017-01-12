@@ -10,9 +10,14 @@ public class ClearBerryCount : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.C)) {
-            playerData.SetUpPlayerData();
-            berryUIController.UpdateBerryCount();
-            SceneManager.LoadScene("Map");
+			ClearData ();
         }
+	}
+
+	public void ClearData () {
+
+		playerData.SetUpPlayerData();
+		berryUIController.UpdateBerryCount();
+		SceneManager.LoadScene("Map");
 	}
 }
