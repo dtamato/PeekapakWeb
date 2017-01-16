@@ -24,4 +24,19 @@ public class TopCustomization : MonoBehaviour {
 
 		avatarTopPaint.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
 	}
+
+	public Sprite GetTopOutline () {
+
+		return avatarTopOutline.sprite;
+	}
+
+	public Sprite GetTopPaint () {
+
+		return avatarTopPaint.sprite;
+	}
+
+	public Color GetTopColor () {
+
+		return avatarTopPaint.color;
+	}
 }

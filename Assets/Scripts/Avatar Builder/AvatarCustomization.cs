@@ -69,7 +69,7 @@ public class AvatarCustomization : MonoBehaviour {
 		hairPanel.SetActive (true);
 		hairColorPanel.SetActive (true);
 	}
-		
+
 	public void OpenEyesPanel () {
 
 		CloseAllPanels ();
@@ -109,5 +109,15 @@ public class AvatarCustomization : MonoBehaviour {
 		CloseAllPanels ();
 		accessoryPanel.SetActive (true);
 		accessoryColorPanel.SetActive(true);
+	}
+
+	public void SaveAvatar () {
+
+		GameObject avatarSaver = GameObject.FindGameObjectWithTag ("Avatar Saver");
+
+		if (avatarSaver) {
+
+			avatarSaver.GetComponent<AvatarSaver> ().SaveData (this.gameObject);
+		}
 	}
 }

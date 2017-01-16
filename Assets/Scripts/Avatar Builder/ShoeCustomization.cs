@@ -24,4 +24,19 @@ public class ShoeCustomization : MonoBehaviour {
 
 		avatarShoePaint.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
 	}
+
+	public Sprite GetShoeOutline () {
+
+		return avatarShoeOutline.sprite;
+	}
+
+	public Sprite GetShoePaint () {
+
+		return avatarShoePaint.sprite;
+	}
+
+	public Color GetShoeColor () {
+
+		return avatarShoePaint.color;
+	}
 }

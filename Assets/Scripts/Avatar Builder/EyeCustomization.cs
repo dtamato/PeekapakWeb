@@ -24,7 +24,7 @@ public class EyeCustomization : MonoBehaviour {
 		eyeGrid[1] = type2Eyes;
 		eyeGrid[2] = type3Eyes;
 
-		UpdateEyes();
+		//UpdateEyes();
 	}
 
 	public void ChangeEyeType (int newEyeTypeIndex) {
@@ -51,5 +51,10 @@ public class EyeCustomization : MonoBehaviour {
 
 		// Update sprite
 		avatarEyes.sprite = eyeGrid[currentEyeType][currentEyeColor];
+	}
+
+	public Sprite GetEyeSprite () {
+
+		return avatarEyes.sprite;
 	}
 }

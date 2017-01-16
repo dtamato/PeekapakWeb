@@ -46,4 +46,29 @@ public class HairCustomization : MonoBehaviour {
 		hairFrontPaint.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
 		hairBackPaint.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
 	}
+
+	public Sprite GetBackHairOutline () {
+
+		return hairBackOutline.sprite;
+	}
+
+	public Sprite GetBackHairPaint () {
+
+		return hairBackPaint.sprite;
+	}
+
+	public Sprite GetFrontHairOutline () {
+
+		return hairFrontOutline.sprite;
+	}
+
+	public Sprite GetFrontHairPaint () {
+		
+		return hairFrontPaint.sprite;
+	}
+
+	public Color GetHairColor () {
+
+		return hairBackPaint.color;
+	}
 }

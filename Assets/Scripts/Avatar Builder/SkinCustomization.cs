@@ -15,4 +15,9 @@ public class SkinCustomization : MonoBehaviour {
 		avatarHeadPaint.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image> ().color;
 		avatarBodyPaint.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image> ().color;
 	}
+
+	public Color GetSkinColor () {
+
+		return avatarHeadPaint.color;
+	}
 }

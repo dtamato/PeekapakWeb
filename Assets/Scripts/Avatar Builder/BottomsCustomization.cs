@@ -24,4 +24,19 @@ public class BottomsCustomization : MonoBehaviour {
 
 		avatarBottomsPaint.color = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
 	}
+
+	public Sprite GetBottomsOutline () {
+
+		return avatarBottomsOutline.sprite;
+	}
+
+	public Sprite GetBottomsPaint () {
+
+		return avatarBottomsPaint.sprite;
+	}
+
+	public Color GetBottomsColor () {
+
+		return avatarBottomsPaint.color;
+	}
 }
