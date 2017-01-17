@@ -23,8 +23,6 @@ public class EyeCustomization : MonoBehaviour {
 		eyeGrid[0] = type1Eyes;
 		eyeGrid[1] = type2Eyes;
 		eyeGrid[2] = type3Eyes;
-
-		//UpdateEyes();
 	}
 
 	public void ChangeEyeType (int newEyeTypeIndex) {

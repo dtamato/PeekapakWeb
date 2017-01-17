@@ -12,6 +12,7 @@ public class VelocityBasedSwiping : MonoBehaviour {
     [SerializeField, Range(0, 1), Tooltip("Percentage of the screen the swipe needs to be to count as a swipe.")] 
     float swipePercentage = 0.5f;
 
+	[SerializeField] float cameraMoveSpeed = 3;
     float minimumSwipeSize;
 
 	MapCameraController cameraController;
@@ -45,11 +46,11 @@ public class VelocityBasedSwiping : MonoBehaviour {
         if(xSpeed > minimumSwipeSize) {
 
             Debug.Log("Swiped right!");
-			cameraController.MoveCamera (1);
+			cameraController.MoveCamera (-cameraMoveSpeed);
         }
         else if(xSpeed < -minimumSwipeSize) {
 
-			cameraController.MoveCamera (-1);
+			cameraController.MoveCamera (cameraMoveSpeed);
         }
     }
 }
