@@ -42,9 +42,21 @@ public class AvatarLoader : MonoBehaviour {
 		// Check to see if can load and there is data to load
 		if (avatarSaver && avatarSaver.GetHairBackOutline() != null) {
 
-			hairBackOutline.sprite = avatarSaver.GetHairBackOutline ();
-			hairBackPaint.sprite = avatarSaver.GetHairBackPaint ();
-			hairBackPaint.color = avatarSaver.GetHairColor ();
+
+			if (avatarSaver.GetHairBackOutline().name == "RoundCornerSquare") {
+
+				hairBackOutline.gameObject.SetActive (false);
+				hairBackPaint.gameObject.SetActive (false);
+			}
+			else {
+
+				hairBackOutline.gameObject.SetActive (true);
+				hairBackPaint.gameObject.SetActive (true);
+
+				hairBackOutline.sprite = avatarSaver.GetHairBackOutline ();
+				hairBackPaint.sprite = avatarSaver.GetHairBackPaint ();
+				hairBackPaint.color = avatarSaver.GetHairColor ();
+			}
 
 			hairFrontOutline.sprite = avatarSaver.GetHairFrontOutline ();
 			hairFrontPaint.sprite = avatarSaver.GetHairFrontPaint ();
