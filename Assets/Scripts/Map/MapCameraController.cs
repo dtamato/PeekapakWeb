@@ -19,6 +19,14 @@ public class MapCameraController : MonoBehaviour {
 	[Header("References")]
 	[SerializeField] GameObject playerHUD;
 
+	[Header("Location Positions")]
+	[SerializeField] float leoHomeXPosition;
+	[SerializeField] float libraryXPosition;
+	[SerializeField] float treeOfGratitudeXPosition;
+	[SerializeField] float statueXPosition;
+	[SerializeField] float schoolXPosition;
+	[SerializeField] float schoolHallXPosition;
+
 	bool canMove = true;
 	bool moveLeft = false;
 	bool moveRight = false;
@@ -28,6 +36,55 @@ public class MapCameraController : MonoBehaviour {
 		streetRectTransform.localPosition = new Vector3 (rightBoundary, streetRectTransform.localPosition.y, streetRectTransform.localPosition.z);
 		closeTreesRectTranform.localPosition = new Vector3(rightBoundary, closeTreesRectTranform.localPosition.y, closeTreesRectTranform.localPosition.z);
 		farTreesRectTransform.localPosition = new Vector3(rightBoundary, farTreesRectTransform.localPosition.y, farTreesRectTransform.localPosition.z);
+	}
+
+	void OnEnable () {
+
+		// Move to location of last game
+		string lastLocation = PlayerPrefs.GetString ("Location");
+
+		if (lastLocation == "Library") {
+
+			streetRectTransform.localPosition = new Vector3 (libraryXPosition, 0, 0);
+			closeTreesRectTranform.localPosition = new Vector3 (libraryXPosition, 0, 0);
+			farTreesRectTransform.localPosition = new Vector3 (libraryXPosition, 0, 0);
+		}
+		else if (lastLocation == "Leo's Home") {
+
+			streetRectTransform.localPosition = new Vector3 (leoHomeXPosition, 0, 0);
+			closeTreesRectTranform.localPosition = new Vector3 (leoHomeXPosition, 0, 0);
+			farTreesRectTransform.localPosition = new Vector3 (leoHomeXPosition, 0, 0);
+		}
+		else if (lastLocation == "School Hallway") {
+
+			streetRectTransform.localPosition = new Vector3 (schoolHallXPosition, 0, 0);
+			closeTreesRectTranform.localPosition = new Vector3 (schoolHallXPosition, 0, 0);
+			farTreesRectTransform.localPosition = new Vector3 (schoolHallXPosition, 0, 0);
+		}
+		else if (lastLocation == "TOG") {
+
+			streetRectTransform.localPosition = new Vector3 (treeOfGratitudeXPosition, 0, 0);
+			closeTreesRectTranform.localPosition = new Vector3 (treeOfGratitudeXPosition, 0, 0);
+			farTreesRectTransform.localPosition = new Vector3 (treeOfGratitudeXPosition, 0, 0);
+		}
+		else if (lastLocation == "School") {
+
+			streetRectTransform.localPosition = new Vector3 (schoolXPosition, 0, 0);
+			closeTreesRectTranform.localPosition = new Vector3 (schoolXPosition, 0, 0);
+			farTreesRectTransform.localPosition = new Vector3 (schoolXPosition, 0, 0);
+		}
+		else if (lastLocation == "Statue") {
+
+			streetRectTransform.localPosition = new Vector3 (statueXPosition, 0, 0);
+			closeTreesRectTranform.localPosition = new Vector3 (statueXPosition, 0, 0);
+			farTreesRectTransform.localPosition = new Vector3 (statueXPosition, 0, 0);
+		}
+		else {
+
+			streetRectTransform.localPosition = Vector3.zero;
+			closeTreesRectTranform.localPosition = Vector3.zero;
+			farTreesRectTransform.localPosition = Vector3.zero;
+		}
 	}
 
 	void Update () {
