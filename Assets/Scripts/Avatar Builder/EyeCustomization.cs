@@ -40,12 +40,12 @@ public class EyeCustomization : MonoBehaviour {
 	void UpdateEyes () {
 
 		// Update highlight
-		for(int i = 0; i < eyeTypes.Length; i++) {
-
-			eyeTypes[i].transform.GetChild(0).gameObject.SetActive(false);
-		}
-
-		eyeTypes[currentEyeType].transform.GetChild(0).gameObject.SetActive(true);
+//		for(int i = 0; i < eyeTypes.Length; i++) {
+//
+//			eyeTypes[i].transform.GetChild(0).gameObject.SetActive(false);
+//		}
+//
+//		eyeTypes[currentEyeType].transform.GetChild(0).gameObject.SetActive(true);
 
 		// Update sprite
 		avatarEyes.sprite = eyeGrid[currentEyeType][currentEyeColor];
