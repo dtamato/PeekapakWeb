@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerData : MonoBehaviour {
@@ -20,6 +21,9 @@ public class PlayerData : MonoBehaviour {
 	}
 
     public void SetUpPlayerData() {
+
+		PlayerPrefs.SetString ("playerName", "Player Name");
+
         // Set the location to be map 
         PlayerPrefs.SetString("Location", "Map");
         // Default the berries to 0
@@ -42,4 +46,9 @@ public class PlayerData : MonoBehaviour {
     public void SetLocation(string newLocation) {
         PlayerPrefs.SetString("Location", newLocation);
     }
+
+	public void SaveName (InputField inputField) {
+
+		PlayerPrefs.SetString ("playerName", inputField.text);
+	}
 }

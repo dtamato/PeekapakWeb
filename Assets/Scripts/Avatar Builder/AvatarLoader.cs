@@ -9,6 +9,10 @@ using System.Collections;
 [DisallowMultipleComponent]
 public class AvatarLoader : MonoBehaviour {
 
+	[Header("Data References")]
+	[SerializeField] Text nameText;
+
+	[Header("Avatar References")]
 	[SerializeField] Image hairBackOutline;
 	[SerializeField] Image hairBackPaint;
 	[SerializeField] Image hairFrontOutline;
@@ -25,11 +29,27 @@ public class AvatarLoader : MonoBehaviour {
 
 
 	void OnEnable () {
-		
+
 		LoadData ();
+		LoadSprites ();
 	}
 
 	void LoadData () {
+
+		if (nameText != null && PlayerPrefs.HasKey ("playerName")) {
+
+			if (nameText.GetComponent<InputField> ()) {
+
+				nameText.GetComponent<InputField> ().text = PlayerPrefs.GetString ("playerName");
+			}
+			else {
+
+				nameText.text = PlayerPrefs.GetString ("playerName");
+			}
+		}
+	}
+
+	void LoadSprites () {
 
 		GameObject avatarSaverGameObject = GameObject.FindGameObjectWithTag ("Avatar Saver");
 		AvatarSaver avatarSaver = null;
@@ -40,18 +60,17 @@ public class AvatarLoader : MonoBehaviour {
 		}
 
 		// Check to see if can load and there is data to load
-		if (avatarSaver && avatarSaver.GetHairBackOutline() != null) {
+		if (avatarSaver && avatarSaver.GetHairFrontOutline() != null) {
 
+			if (avatarSaver.GetHairBackOutline() == null) {
 
-			if (avatarSaver.GetHairBackOutline().name == "RoundCornerSquare") {
+				hairBackOutline.sprite = null;
+				hairBackPaint.sprite = null;
 
-				hairBackOutline.gameObject.SetActive (false);
-				hairBackPaint.gameObject.SetActive (false);
+				hairBackOutline.color = Color.clear;
+				hairBackPaint.color = Color.clear;
 			}
 			else {
-
-				hairBackOutline.gameObject.SetActive (true);
-				hairBackPaint.gameObject.SetActive (true);
 
 				hairBackOutline.sprite = avatarSaver.GetHairBackOutline ();
 				hairBackPaint.sprite = avatarSaver.GetHairBackPaint ();

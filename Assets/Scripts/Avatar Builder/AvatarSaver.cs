@@ -89,6 +89,7 @@ public class AvatarSaver : MonoBehaviour {
 		}
 	}
 
+	#region AvatarGetters
 	public Sprite GetHairBackOutline () {
 
 		return hairBackOutline;
@@ -168,4 +169,5 @@ public class AvatarSaver : MonoBehaviour {
 
 		return shoeColor;
 	}
+	#endregion
 }
