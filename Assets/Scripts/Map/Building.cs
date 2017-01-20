@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class Building : MonoBehaviour {
@@ -17,6 +18,15 @@ public class Building : MonoBehaviour {
 
 	[SerializeField] string[] factoids;
 	int factoidsIndex = 0;
+
+
+	void Start () {
+
+		if (SystemInfo.deviceType == DeviceType.Handheld) {
+
+			this.GetComponentInChildren<EventTrigger> ().enabled = false;
+		}
+	}
 
 	void Update () {
 
