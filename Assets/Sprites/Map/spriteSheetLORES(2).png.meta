@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7842b069cb6786f41aea6a97e4c0286f
-timeCreated: 1483759381
+timeCreated: 1486418551
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -22,12 +22,12 @@ TextureImporter:
     21300030: StyleShop
     21300032: GamesTech
     21300034: School
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -39,10 +39,8 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 2048
@@ -53,9 +51,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -63,10 +59,55 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -74,8 +115,8 @@ TextureImporter:
       name: PeekavilleSign
       rect:
         serializedVersion: 2
-        x: 289
-        y: 3224
+        x: 290
+        y: 3295
         width: 377
         height: 267
       alignment: 0
@@ -87,8 +128,8 @@ TextureImporter:
       name: PostalOffice
       rect:
         serializedVersion: 2
-        x: 959
-        y: 3230
+        x: 957
+        y: 3287
         width: 350
         height: 652
       alignment: 0
@@ -100,8 +141,8 @@ TextureImporter:
       name: Bank
       rect:
         serializedVersion: 2
-        x: 1668
-        y: 3228
+        x: 1658
+        y: 3281
         width: 263
         height: 669
       alignment: 0
@@ -113,8 +154,8 @@ TextureImporter:
       name: Museum
       rect:
         serializedVersion: 2
-        x: 2498
-        y: 3222
+        x: 2493
+        y: 3283
         width: 405
         height: 705
       alignment: 0
@@ -126,8 +167,8 @@ TextureImporter:
       name: Gallery
       rect:
         serializedVersion: 2
-        x: 3477
-        y: 3218
+        x: 3473
+        y: 3275
         width: 264
         height: 712
       alignment: 0
@@ -139,8 +180,8 @@ TextureImporter:
       name: ToyShop
       rect:
         serializedVersion: 2
-        x: 507
-        y: 2205
+        x: 504
+        y: 2271
         width: 412
         height: 486
       alignment: 0
@@ -152,8 +193,8 @@ TextureImporter:
       name: Bookshop
       rect:
         serializedVersion: 2
-        x: 1344
-        y: 2215
+        x: 1345
+        y: 2270
         width: 384
         height: 738
       alignment: 0
@@ -165,8 +206,8 @@ TextureImporter:
       name: Library
       rect:
         serializedVersion: 2
-        x: 2132
-        y: 2223
+        x: 2131
+        y: 2286
         width: 840
         height: 650
       alignment: 0
@@ -178,8 +219,8 @@ TextureImporter:
       name: IcecreamParlor
       rect:
         serializedVersion: 2
-        x: 3326
-        y: 2227
+        x: 3336
+        y: 2296
         width: 377
         height: 511
       alignment: 0
@@ -191,8 +232,8 @@ TextureImporter:
       name: Bakery
       rect:
         serializedVersion: 2
-        x: 177
-        y: 1269
+        x: 176
+        y: 1335
         width: 317
         height: 772
       alignment: 0
@@ -205,7 +246,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 792
-        y: 1283
+        y: 1339
         width: 319
         height: 586
       alignment: 0
@@ -217,8 +258,8 @@ TextureImporter:
       name: TreeOfGratitude
       rect:
         serializedVersion: 2
-        x: 1308
-        y: 1288
+        x: 1302
+        y: 1351
         width: 687
         height: 729
       alignment: 0
@@ -230,8 +271,8 @@ TextureImporter:
       name: MarketCafe
       rect:
         serializedVersion: 2
-        x: 2144
-        y: 1311
+        x: 2145
+        y: 1374
         width: 597
         height: 625
       alignment: 0
@@ -243,8 +284,8 @@ TextureImporter:
       name: Market
       rect:
         serializedVersion: 2
-        x: 2912
-        y: 1304
+        x: 2905
+        y: 1372
         width: 960
         height: 631
       alignment: 0
@@ -256,8 +297,8 @@ TextureImporter:
       name: Statue
       rect:
         serializedVersion: 2
-        x: 440
-        y: 199
+        x: 437
+        y: 258
         width: 330
         height: 441
       alignment: 0
@@ -269,8 +310,8 @@ TextureImporter:
       name: StyleShop
       rect:
         serializedVersion: 2
-        x: 1208
-        y: 217
+        x: 1215
+        y: 286
         width: 327
         height: 606
       alignment: 0
@@ -282,8 +323,8 @@ TextureImporter:
       name: GamesTech
       rect:
         serializedVersion: 2
-        x: 2006
-        y: 195
+        x: 2003
+        y: 261
         width: 374
         height: 632
       alignment: 0
@@ -295,8 +336,8 @@ TextureImporter:
       name: School
       rect:
         serializedVersion: 2
-        x: 2648
-        y: 187
+        x: 2638
+        y: 248
         width: 1129
         height: 813
       alignment: 0

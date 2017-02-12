@@ -89,7 +89,7 @@ public class MapCharacter : MonoBehaviour {
          // Check to see if this game has been beaten already
         if (PlayerPrefs.GetInt(successCheck) == 1) {
             // Debug.Log("Game Beaten");
-            speechBubble.GetComponentInChildren<Text>().text = "Thanks so much for helping me!";
+            speechBubble.GetComponentInChildren<Text>().text = "\nThanks so much for helping me!";
             completedButton.SetActive(true);
             incompleteButtons.SetActive(false);
             sadCharacterImage.SetActive(false);

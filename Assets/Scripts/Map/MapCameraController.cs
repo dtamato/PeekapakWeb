@@ -45,43 +45,43 @@ public class MapCameraController : MonoBehaviour {
 
 		if (lastLocation == "Library") {
 
-			streetRectTransform.localPosition = new Vector3 (libraryXPosition, 0, 0);
+			streetRectTransform.localPosition = new Vector3 (libraryXPosition, streetRectTransform.localPosition.y, 0);
 			closeTreesRectTranform.localPosition = new Vector3 (libraryXPosition, 0, 0);
 			farTreesRectTransform.localPosition = new Vector3 (libraryXPosition, 0, 0);
 		}
 		else if (lastLocation == "Leo's Home") {
 
-			streetRectTransform.localPosition = new Vector3 (leoHomeXPosition, 0, 0);
+			streetRectTransform.localPosition = new Vector3 (leoHomeXPosition, streetRectTransform.localPosition.y, 0);
 			closeTreesRectTranform.localPosition = new Vector3 (leoHomeXPosition, 0, 0);
 			farTreesRectTransform.localPosition = new Vector3 (leoHomeXPosition, 0, 0);
 		}
 		else if (lastLocation == "School Hallway") {
 
-			streetRectTransform.localPosition = new Vector3 (schoolHallXPosition, 0, 0);
+			streetRectTransform.localPosition = new Vector3 (schoolHallXPosition, streetRectTransform.localPosition.y, 0);
 			closeTreesRectTranform.localPosition = new Vector3 (schoolHallXPosition, 0, 0);
 			farTreesRectTransform.localPosition = new Vector3 (schoolHallXPosition, 0, 0);
 		}
 		else if (lastLocation == "TOG") {
 
-			streetRectTransform.localPosition = new Vector3 (treeOfGratitudeXPosition, 0, 0);
+			streetRectTransform.localPosition = new Vector3 (treeOfGratitudeXPosition, streetRectTransform.localPosition.y, 0);
 			closeTreesRectTranform.localPosition = new Vector3 (treeOfGratitudeXPosition, 0, 0);
 			farTreesRectTransform.localPosition = new Vector3 (treeOfGratitudeXPosition, 0, 0);
 		}
 		else if (lastLocation == "School") {
 
-			streetRectTransform.localPosition = new Vector3 (schoolXPosition, 0, 0);
+			streetRectTransform.localPosition = new Vector3 (schoolXPosition, streetRectTransform.localPosition.y, 0);
 			closeTreesRectTranform.localPosition = new Vector3 (schoolXPosition, 0, 0);
 			farTreesRectTransform.localPosition = new Vector3 (schoolXPosition, 0, 0);
 		}
 		else if (lastLocation == "Statue") {
 
-			streetRectTransform.localPosition = new Vector3 (statueXPosition, 0, 0);
+			streetRectTransform.localPosition = new Vector3 (statueXPosition, streetRectTransform.localPosition.y, 0);
 			closeTreesRectTranform.localPosition = new Vector3 (statueXPosition, 0, 0);
 			farTreesRectTransform.localPosition = new Vector3 (statueXPosition, 0, 0);
 		}
 		else {
 
-			streetRectTransform.localPosition = Vector3.zero;
+			streetRectTransform.localPosition = new Vector3(0, streetRectTransform.localPosition.y, 0);
 			closeTreesRectTranform.localPosition = Vector3.zero;
 			farTreesRectTransform.localPosition = Vector3.zero;
 		}
