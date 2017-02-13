@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0775524bfb4c59a4197e5487609cc5d5
-timeCreated: 1483404633
+timeCreated: 1487019702
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -22,12 +22,30 @@ TextureImporter:
     21300030: StyleShopGlow
     21300032: GamesTechGlow
     21300034: SchoolGlow
-  serializedVersion: 2
+    21300036: buildingsGlow2_0
+    21300038: buildingsGlow2_1
+    21300040: buildingsGlow2_2
+    21300042: buildingsGlow2_3
+    21300044: buildingsGlow2_4
+    21300046: buildingsGlow2_5
+    21300048: buildingsGlow2_6
+    21300050: buildingsGlow2_7
+    21300052: buildingsGlow2_8
+    21300054: buildingsGlow2_9
+    21300056: buildingsGlow2_10
+    21300058: buildingsGlow2_11
+    21300060: buildingsGlow2_12
+    21300062: buildingsGlow2_13
+    21300064: buildingsGlow2_14
+    21300066: buildingsGlow2_15
+    21300068: buildingsGlow2_16
+    21300070: buildingsGlow2_17
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -39,10 +57,8 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 2048
@@ -53,9 +69,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -63,244 +77,289 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PeekavilleSignGlow
+      name: buildingsGlow2_0
       rect:
         serializedVersion: 2
-        x: 327
-        y: 3875
-        width: 498
-        height: 359
+        x: 136
+        y: 1635
+        width: 214
+        height: 147
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PostalOfficeGlow
+      name: buildingsGlow2_1
       rect:
         serializedVersion: 2
-        x: 1136
-        y: 3887
-        width: 460
-        height: 817
+        x: 480
+        y: 1636
+        width: 202
+        height: 346
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BankGlow
+      name: buildingsGlow2_2
       rect:
         serializedVersion: 2
-        x: 1981
-        y: 3881
-        width: 355
-        height: 838
+        x: 843
+        y: 1639
+        width: 149
+        height: 349
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MuseumGlow
+      name: buildingsGlow2_3
       rect:
         serializedVersion: 2
-        x: 2986
-        y: 3881
-        width: 519
-        height: 878
+        x: 1264
+        y: 1637
+        width: 234
+        height: 368
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: GalleryGlow
+      name: buildingsGlow2_4
       rect:
         serializedVersion: 2
-        x: 4166
-        y: 3878
-        width: 348
-        height: 884
+        x: 1772
+        y: 1632
+        width: 147
+        height: 374
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ToyShopGlow
+      name: buildingsGlow2_5
       rect:
         serializedVersion: 2
-        x: 597
-        y: 2658
-        width: 523
-        height: 611
+        x: 248
+        y: 1123
+        width: 229
+        height: 255
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BookShopGlow
+      name: buildingsGlow2_6
       rect:
         serializedVersion: 2
-        x: 1606
-        y: 2670
-        width: 489
-        height: 916
+        x: 680
+        y: 1124
+        width: 209
+        height: 386
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LibraryGlow
+      name: buildingsGlow2_7
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 2657
-        width: 1039
-        height: 827
+        x: 1087
+        y: 1127
+        width: 440
+        height: 343
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: IcecreamParlorGlow
+      name: buildingsGlow2_8
       rect:
         serializedVersion: 2
-        x: 3991
-        y: 2685
-        width: 484
-        height: 641
+        x: 1696
+        y: 1131
+        width: 206
+        height: 270
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BakeryGlow
+      name: buildingsGlow2_9
       rect:
         serializedVersion: 2
-        x: 201
-        y: 1530
-        width: 407
-        height: 957
+        x: 79
+        y: 647
+        width: 186
+        height: 402
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: FlowerShopGlow
+      name: buildingsGlow2_10
       rect:
         serializedVersion: 2
-        x: 942
-        y: 1553
-        width: 409
-        height: 732
+        x: 392
+        y: 655
+        width: 182
+        height: 305
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: TreeOfGratitudeGlow
+      name: buildingsGlow2_11
       rect:
         serializedVersion: 2
-        x: 1562
-        y: 1552
-        width: 855
-        height: 904
+        x: 656
+        y: 656
+        width: 377
+        height: 378
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MarketCafeGlow
+      name: buildingsGlow2_12
       rect:
         serializedVersion: 2
-        x: 2574
-        y: 1581
-        width: 747
-        height: 778
+        x: 1093
+        y: 667
+        width: 315
+        height: 325
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MarketGlow
+      name: buildingsGlow2_13
       rect:
         serializedVersion: 2
-        x: 3494
-        y: 1573
-        width: 1183
-        height: 786
+        x: 1487
+        y: 664
+        width: 501
+        height: 330
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: StatueGlow
+      name: buildingsGlow2_14
       rect:
         serializedVersion: 2
-        x: 517
-        y: 242
-        width: 424
-        height: 559
+        x: 221
+        y: 103
+        width: 178
+        height: 235
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: StyleShopGlow
+      name: buildingsGlow2_15
       rect:
         serializedVersion: 2
-        x: 1446
-        y: 264
-        width: 422
-        height: 755
+        x: 613
+        y: 115
+        width: 180
+        height: 313
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: GamesTechGlow
+      name: buildingsGlow2_16
       rect:
         serializedVersion: 2
-        x: 2409
-        y: 235
-        width: 477
-        height: 789
+        x: 1021
+        y: 100
+        width: 202
+        height: 330
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SchoolGlow
+      name: buildingsGlow2_17
       rect:
         serializedVersion: 2
-        x: 3162
-        y: 225
-        width: 1401
-        height: 1005
+        x: 1344
+        y: 96
+        width: 602
+        height: 422
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

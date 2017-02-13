@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6442391c0335d9f4681372c4509c9d53
-timeCreated: 1483902380
+timeCreated: 1487026186
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,12 +16,12 @@ TextureImporter:
     21300018: codyEmotionsSprites_0
     21300020: codyEmotionsSprites_2
     21300022: codyEmotionsSprites_9
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -33,10 +33,8 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 2048
@@ -47,9 +45,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -57,140 +53,81 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: codyEmotionsSprites_1
-      rect:
-        serializedVersion: 2
-        x: 1617
-        y: 4737
-        width: 740
-        height: 1183
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: codyEmotionsSprites_3
-      rect:
-        serializedVersion: 2
-        x: 4707
-        y: 4815
-        width: 662
-        height: 1211
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: codyEmotionsSprites_4
-      rect:
-        serializedVersion: 2
-        x: 188
-        y: 3171
-        width: 831
-        height: 1271
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: codyEmotionsSprites_5
-      rect:
-        serializedVersion: 2
-        x: 1574
-        y: 3171
-        width: 829
-        height: 1271
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: codyEmotionsSprites_6
-      rect:
-        serializedVersion: 2
-        x: 3329
-        y: 3149
-        width: 751
-        height: 1297
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: codyEmotionsSprites_7
-      rect:
-        serializedVersion: 2
-        x: 4649
-        y: 3149
-        width: 752
-        height: 1297
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: codyEmotionsSprites_8
-      rect:
-        serializedVersion: 2
-        x: 1890
-        y: 1668
-        width: 606
-        height: 1328
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: codyEmotionsSprites_10
-      rect:
-        serializedVersion: 2
-        x: 1885
-        y: 165
-        width: 695
-        height: 1420
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: codyEmotionsSprites_11
-      rect:
-        serializedVersion: 2
-        x: 3200
-        y: 165
-        width: 694
-        height: 1420
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: codyEmotionsSprites_0
       rect:
         serializedVersion: 2
-        x: 158
-        y: 4691
-        width: 831
-        height: 1271
+        x: 80
+        y: 1581
+        width: 252
+        height: 394
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_1
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1581
+        width: 252
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -198,12 +135,90 @@ TextureImporter:
       name: codyEmotionsSprites_2
       rect:
         serializedVersion: 2
-        x: 3294
-        y: 4780
-        width: 831
-        height: 1271
+        x: 1156
+        y: 1607
+        width: 225
+        height: 403
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_3
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 1607
+        width: 225
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1059
+        width: 283
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_5
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1059
+        width: 283
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_6
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 1051
+        width: 255
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_7
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 1051
+        width: 257
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_8
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 557
+        width: 206
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -211,12 +226,38 @@ TextureImporter:
       name: codyEmotionsSprites_9
       rect:
         serializedVersion: 2
-        x: 3087
-        y: 1633
-        width: 831
-        height: 1395
-      alignment: 9
-      pivot: {x: 0.15111981, y: -2.0471513}
+        x: 1095
+        y: 557
+        width: 205
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_10
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 55
+        width: 237
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: codyEmotionsSprites_11
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 55
+        width: 237
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
